@@ -3,7 +3,7 @@
 <head>
 <link rel="icon" href="asset/eyecon.ico" sizes="any">
 <meta charset="utf-8">
-<meta name="viewport" content="width=750">
+<meta name="viewport" content="width=650">
 <title>Socials | sakoshiv</title>
 <style type="text/css">
 body {
@@ -30,9 +30,73 @@ body,td,th {
 <p style="text-align: center; font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', 'DejaVu Sans', Verdana, sans-serif;">&nbsp;</p>
 <p style="text-align: center; font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', 'DejaVu Sans', Verdana, sans-serif;">&nbsp;</p>
 <p style="text-align: center; font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', 'DejaVu Sans', Verdana, sans-serif;">&nbsp;</p>
-<img src="asset/neko.gif" width="450" height="337" alt=""/>
-<p style="font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', Verdana, sans-serif; font-size: small; color: #A7A7A7;">There's nothing here but links. In the meantime watch this GIF loop.</p>
-<p style="color: #111111">&nbsp;sakoshiv - (here for the SEO/indexing)&nbsp;</p>
+
+<img id="random-gif" src="asset/neko.gif" alt="">
+<p id="random-text" style="font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', Verdana, sans-serif; font-size: small; color: #A7A7A7;"></p>
+
+<script>
+const randomContent = [
+    {
+        gif: "asset/neko.gif",
+        width: 498,
+        height: 373,
+        text: "Fuck you, I'm turning cats into catgirls."
+    },
+    {
+        gif: "asset/mako.jpg",
+        width: 640,
+        height: 480,
+        text: "ぐぬぬ..."
+    },
+    {
+        gif: "asset/mako_killdozer.png",
+        width: 500,
+        height: 500,
+        text: "BREAKING NEWS"
+    },
+    {
+        gif: "asset/mako_jump.gif",
+        width: 760,
+        height: 420,
+        text: "This is some perplexing shit."
+    },
+    {
+        gif: "asset/bokodeath.gif",
+        width: 340,
+        height: 432,
+        text: "Look at what you fucking did."
+    },
+    {
+        gif: "asset/mako_ride.gif",
+        width: 340,
+        height: 454,
+        text: "Give this a gander."
+    },
+    {
+        gif: "asset/huh.png",
+        width: 616,
+        height: 389,
+        text: "If the name Sako seems familiar, it's not."
+    },
+    {
+        gif: "asset/miho_lurk.png",
+        width: 605,
+        height: 340,
+        text: "You clicked the link. Thanks for the personal information."
+    }
+];
+
+const selection = randomContent[
+    Math.floor(Math.random() * randomContent.length)
+];
+
+document.getElementById("random-gif").src = selection.gif;
+document.getElementById("random-gif").width = selection.width;
+document.getElementById("random-gif").height = selection.height;
+document.getElementById("random-text").textContent = selection.text;
+</script>
+
+<p style="color: #111111">sakoshiv</p>
 
 </body>
 </html>
