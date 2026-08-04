@@ -1,1 +1,19 @@
-<?xml version="1.0" encoding="UTF-8"?><svg id="Layer_2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34.03 34.03"><defs><style>.cls-1{fill:#111;}.cls-2{fill:#d7d7d7;}</style></defs><g id="site_mock"><g id="Group_1"><g id="Twitter"><g id="Backing"><rect class="cls-2" y="0" width="34.03" height="34.03" rx="3.75" ry="3.75"/></g><g id="X"><path class="cls-1" d="M20.02,15.07l9.5-10.82h-4.33l-7.22,8.15-6.16-8.15H2.89l10.63,13.93L3.45,29.75h4.33l7.81-8.92,6.82,8.92h8.71l-11.1-14.68ZM7.98,6.7h2.58l15.52,20.51h-2.4L7.98,6.7Z"/></g></g></g></g></svg>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 34 34">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #d7d7d7;
+      }
+    </style>
+  </defs>
+  <!-- Generator: Adobe Illustrator 28.7.10, SVG Export Plug-In . SVG Version: 1.2.0 Build 236)  -->
+  <g>
+    <g id="Layer_2">
+      <g>
+        <polygon class="cls-1" points="8 6.7 23.7 27.2 26.1 27.2 10.6 6.7 8 6.7"/>
+        <path class="cls-1" d="M30.3,0H3.8C1.7,0,0,1.7,0,3.7v26.5c0,2.1,1.7,3.8,3.8,3.8h26.5c2.1,0,3.8-1.7,3.8-3.8V3.7C34,1.7,32.4,0,30.3,0ZM22.4,29.7l-6.8-8.9-7.8,8.9H3.5l10.1-11.6L2.9,4.2h8.9l6.2,8.2,7.2-8.2h4.3l-9.5,10.8,11.1,14.7h-8.7Z"/>
+      </g>
+    </g>
+  </g>
+</svg>

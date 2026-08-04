@@ -1,1 +1,19 @@
-<?xml version="1.0" encoding="UTF-8"?><svg id="Layer_2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34.03 34.03"><defs><style>.cls-1{fill:#111;}.cls-2{fill:#d7d7d7;}</style></defs><g id="site_mock"><g id="Group_1"><g id="Twitch"><g id="Backing"><rect class="cls-2" y="0" width="34.03" height="34.03" rx="3.75" ry="3.75"/></g><g id="TTV"><path class="cls-1" d="M6.35,3.7l-1.09,4.35v19.56h4.91v2.72h2.73l2.73-2.72h4.37l8.73-8.69V3.7H6.35ZM26.55,17.82l-3.82,3.8h-6l-3.28,3.26v-3.26h-4.91V5.87h18.01v11.95ZM22.73,10.21h-2.18v6.52h2.18v-6.52ZM16.72,10.21h-2.18v6.52h2.18v-6.52Z"/></g></g></g></g></svg>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 34 34">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #d7d7d7;
+      }
+    </style>
+  </defs>
+  <!-- Generator: Adobe Illustrator 28.7.10, SVG Export Plug-In . SVG Version: 1.2.0 Build 236)  -->
+  <g>
+    <g id="Layer_2">
+      <g>
+        <path class="cls-1" d="M13.5,24.9l3.3-3.3h6l3.8-3.8V5.9H8.5v15.8h4.9v3.3ZM20.5,10.2h2.2v6.5h-2.2v-6.5ZM14.5,10.2h2.2v6.5h-2.2v-6.5Z"/>
+        <path class="cls-1" d="M30.3,0H3.8C1.7,0,0,1.7,0,3.7v26.5c0,2.1,1.7,3.8,3.8,3.8h26.5c2.1,0,3.8-1.7,3.8-3.8V3.7C34,1.7,32.4,0,30.3,0ZM28.7,18.9l-8.7,8.7h-4.4l-2.7,2.7h-2.7v-2.7h-4.9V8.1l1.1-4.4h22.4v15.2Z"/>
+      </g>
+    </g>
+  </g>
+</svg>
