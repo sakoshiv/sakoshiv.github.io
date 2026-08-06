@@ -5,7 +5,7 @@
 <link rel="icon" href="asset/eyecon.ico" sizes="any">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sako | Homepage</title>
+<title>Sako</title>
 
 <style type="text/css">
 
@@ -15,7 +15,6 @@ body {
     margin: 0;
 }
 
-/* Main content area */
 .content {
     max-width: 700px;
     margin: 0 auto;
@@ -23,14 +22,20 @@ body {
     text-align: center;
 }
 
-/* Header */
+/* Header Shit*/
 .header {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-/* Social icons */
+@media (max-width: 600px) {
+    .sako-logo {
+        display: none;
+    }
+}
+
+/* Social Icon Shit */
 .socials {
     display: flex;
     align-items: center;
@@ -40,23 +45,23 @@ body {
 /* Separator */
 hr {
     border: 0;
-    border-top: 1px solid #333333;
+    border-top: 2px solid #404040;
     margin: 25px 0;
 }
 
-/* Normal left-aligned text */
+/* Alignment */
 .text {
     text-align: left;
     font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans',
                  'DejaVu Sans', Verdana, sans-serif;
 }
 
-/* Center the random GIF and its caption */
+/* Media Centering */
 .random {
     text-align: center;
 }
 
-/* Keep media inside the content boundaries */
+/* Media Alignment */
 .random img {
     display: block;
     max-width: calc(100% - 30px);
@@ -120,14 +125,13 @@ hr {
     <div class="text">
 
       <p style="color: #A7A7A7; font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', Verdana, sans-serif;">
-            &nbsp;» Homepage
-        </p>
+        » SNS Links </p>
 
-      <p style="color: #d7d7d7; font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', Verdana, sans-serif;">I think that linktree-esqe sites are boring and generic. Creating something on your own is much cooler since every creative decision is deliberate. It can tell you a lot about a person. Anyway the purpose of this page is to link socials which are above. The shit below fills the void. </p>
-      <p style="color: #d7d7d7; font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', Verdana, sans-serif;">The word 'shiv' could refer to a few things but I was thinking of improvised stabbing weapons when I chose to use it in usernames.</p>
+      <p style="color: #d7d7d7; font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', Verdana, sans-serif;">I'm still working on this. For now, links above.</p>
+
       <p style="color: #d7d7d7; font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', Verdana, sans-serif;">&nbsp;</p>
 <p style="color: #d7d7d7; font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', Verdana, sans-serif;"></p>
-    </div>
+  </div>
 
 
     <div class="random">
@@ -191,7 +195,7 @@ const randomContent = [
         gif: "asset/huh.png",
         width: 616,
         height: 389,
-        text: "The name Sako is familiar???"
+        text: "Is the name Sako is familiar?"
     },
 
     {
