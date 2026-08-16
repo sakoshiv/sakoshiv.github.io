@@ -9,16 +9,15 @@
 <title>Sako | Placeholder Post</title>
 
 <style type="text/css">
-    
+
 a {
-    color: #A7A7A7; /* Default */
+    color: #A7A7A7;
 }
 
 a:visited {
-    color: #A7A7A7; /* Visited */
+    color: #A7A7A7;
 }
-    
-/* Subtle Link Style */
+
 .subtle-link {
     color: inherit;
     text-decoration: none;
@@ -41,14 +40,20 @@ body {
     text-align: center;
 }
 
-/* Ignore the mess. */    
+/* When cleaning up later organize things by what's seen top to bottom. This page is the base for other pages later. Make root references afer clean-up here. */
 
-/* Header Shit */
+/* If you can read this, look away. */
+
+
+    
+/* Header */
+
 .header {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
+
 .content .text h6 {
     font-size: xx-large;
     text-align: left;
@@ -62,18 +67,20 @@ body {
 }
 
 /* Social Icon Shit */
+
 .socials {
     display: flex;
     align-items: center;
     gap: 6px;
 }
 
-/* Really bad and really messy. */
+/* Really bad and really messy. Header (specifically header6 apparently) & paragraph margins. Clean-up needed. */
+
 h6 {
     margin-bottom: 5px;
 }
 
-p {    
+p {
 }
 
 hr {
@@ -82,16 +89,19 @@ hr {
 
 h6 {
     margin-top: 5;
+    margin-bottom: 5px;
 }
 
 /* Separator */
+
 hr {
     border: 0;
     border-top: 2px solid #404040;
     margin: 20px 0;
 }
 
-/* Alignment */
+/* General Alignment */
+
 .text {
     text-align: left;
     font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans',
@@ -99,19 +109,22 @@ hr {
 }
 
 /* Media Centering */
+
 .mediaC {
     text-align: center;
 }
 
-/* Media Alignment */
+/* Existing Image/GIF Media — unchanged */
+
 .mediaA {
     display: block;
     max-width: calc(100% - 30px);
     height: auto;
     margin: 0 auto;
 }
-    
+
 /* Media Margin */
+
 p {
     margin-bottom: 30px;
     font-size: small;
@@ -122,15 +135,28 @@ p {
 mediaC {
     margin-top: 30;
 }
-    
+
 /* Media Comment Space */
+
 .mediaComment {
     margin-top: 8px;
     margin-bottom: 25px;
 }
-    
-/*Header Date */
-.post-header { display: flex; justify-content: space-between; align-items: baseline; } .post-header h6 { margin: 0; } .post-date {
+
+/* Header Date */
+
+.post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.post-header h6 {
+    margin: 0;
+    margin-bottom: -35px;
+}
+
+.post-date {
     font-size: 0.8em;
     color: #a7a7a7;
     font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
@@ -143,8 +169,88 @@ mediaC {
     color: #A7A7A7;
 }
 
-.mediaComment {
+/* The video media stuff. */
+
+.video-media {
+    width: calc(100% - 60px);
+    max-width: 650px;
+    margin: 0 auto;
+    text-align: left;
 }
+
+.video-media details {
+    width: 100%;
+    border: 1px solid #404040;
+    border-radius: 6px;
+    overflow: hidden;
+    background-color: #111111;
+}
+
+.video-media summary {
+    display: flex;
+    align-items: center;
+    padding: 8px 10px;
+    background-color: #161616;
+    color: #d7d7d7;
+    font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    user-select: none;
+    list-style: none;
+}
+
+.video-media summary::-webkit-details-marker {
+    display: none;
+}
+
+/* Dropdown triangle */
+
+.video-arrow {
+    display: inline-block;
+    margin-right: 8px;
+    font-size: 9px;
+    color: #A7A7A7;
+    transition: transform 0.1s ease;
+}
+
+.video-media details[open] .video-arrow {
+    transform: rotate(90deg);
+}
+
+/* Title / filename */
+
+.video-label {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Right-side ≡ button (Title/filename toggle)*/
+
+.video-switch {
+    margin-left: auto;
+    padding-left: 12px;
+    color: #A7A7A7;
+    font-size: 17px;
+    line-height: 1;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.video-switch:hover {
+    color: #d7d7d7;
+}
+
+/* Video */
+
+.video-media video {
+    display: block;
+    width: 100%;
+    height: auto;
+    background-color: #000000;
+    border-top: 1px solid #404040;
+}
+
 </style>
 
 </head>
@@ -190,25 +296,130 @@ mediaC {
     </div>
 
     <hr>
+
 <div class="text">
+
 <p style="color: #A7A7A7; font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', Verdana, sans-serif; font-size: medium;">
-      » <a href="https://sakoshiv.github.io/" class="subtle-link">Home</a> » <a href="https://sakoshiv.github.io/posts/" class="subtle-link">Posts</a> » <a href="https://sakoshiv.github.io/posts/placeholder-post/" class="subtle-link">Placeholder Post</a></p>
+      » <a href="https://sakoshiv.github.io/" class="subtle-link">Home</a>
+      » <a href="https://sakoshiv.github.io/posts/" class="subtle-link">Posts</a>
+      » <a href="https://sakoshiv.github.io/posts/placeholder-post/" class="subtle-link">Placeholder Post</a>
+</p>
+
 <p>
-<div class="post-header"> <h6 style="font-size: xx-large; font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', Verdana, sans-serif;">Huuuge Header Text</h6> <span class="post-date">08.10.2026</span> </div>
-    </p>
-    <p style="font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', Verdana, sans-serif; font-size: medium;">Text here with a single preview sentence. As long as the body margin allows. In the full post you'll be able to just expand the text.&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</p>
+<div class="post-header">
+    <h6 style="font-size: xx-large; font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', Verdana, sans-serif;">
+      Regarding Posts &amp; Formatting </h6>
+    <span class="post-date">08.16.2026</span>
+</div>
+</p>
+
+<p style="font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', Verdana, sans-serif; font-size: medium;">
+    Text here with a single preview sentence. As long as the body margin allows. In the full post you'll be able to just expand the text. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.
+</p>
+
 <div class="mediaC">
 
-      <img src="../../asset/neko.gif" alt="" class="mediaA"> 
-      <p class="mediaComment"  style="color: #A7A7A7;">Neko GIF as placeholder media.</p>
-<p style="font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', Verdana, sans-serif; font-size: medium; text-align: left;">Text here continues independent of the media above it. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.</p>
+    <img src="../../asset/damn_bro.png" alt="" class="mediaA">
+
+    <p class="mediaComment" style="color: #A7A7A7;">
+      Lorem ipsum dolor blah blah blah FUCK you buddy. </p>
+
+    <p style="font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', Verdana, sans-serif; font-size: medium; text-align: left;"> Don't look at the code for this stuff it's all an embarrassing mess. I barely know what I'm doing but I'm starting to get an idea of how this all works. Not super complicated stuff. I just want things to look nice. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&nbsp;</p>
+    <p style="font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', Verdana, sans-serif; font-size: medium; text-align: left;">This is all set up for dumping info. Lots of text. Not an issue if you aren't an illiterate fuck. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. The styling on this page can use some clean-up.</p>
 <h6>Lorem Ipsum Header Text</h6>
-      <p style="font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', Verdana, sans-serif; font-size: medium; text-align: left;">Text here continues independent of the media above it.&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.&nbsp;</p>
-      <p style="font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', Verdana, sans-serif; font-size: medium; text-align: left;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.&nbsp;</p>
-    <img src="../../asset/bokodeath.gif" alt="" class="mediaA">
-    <p class="mediaComment"  style="color: #A7A7A7;">Total Boko death???</p>
+
+    <p style="font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', Verdana, sans-serif; font-size: medium; text-align: left;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.</p>
+<!-- VIDEO MEDIA — replaces the old Boko GIF -->
+
+    <div class="video-media">
+
+        <details open
+                 data-title="Ambrosia Sea Spell"
+                 data-filename="[RB] - [07.17.26] - [10.32.PM] - ID[58].mp4">
+
+            <summary>
+                <span class="video-arrow">▶</span>
+
+                <span class="video-label">
+                    Ambrosia Sea Spell
+                </span>
+
+                <span class="video-switch"
+                      title="Toggle title / filename">
+                    ≡
+                </span>
+            </summary>
+
+          <video controls preload="metadata">
+                <source src="../../asset/[RB] - [07.17.26] - [10.32.PM] - ID[58].mp4"
+                        type="video/mp4">
+                Your browser does not support HTML5 video.
+            </video>
+
+        </details>
+
+    </div>
+
+    <p class="mediaComment" style="color: #A7A7A7;">
+      Casting a  sea of ambrosia. It's actually mimicium.</p>
+    <p style="font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', Verdana, sans-serif; font-size: medium; text-align: left;">Video media embedding isn't looing too bad. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.</p>
+    <p style="font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', Verdana, sans-serif; font-size: medium; text-align: left;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.</p>
+
 </div>
+
 </div>
+
 </div>
+
+<script>
+
+/* VIDEO TITLE / FILENAME TOGGLE */
+
+const videoDetails = document.querySelector(".video-media details");
+const videoLabel = document.querySelector(".video-label");
+const videoSwitch = document.querySelector(".video-switch");
+const video = document.querySelector(".video-media video");
+
+const videoTitle = videoDetails.dataset.title;
+const videoFilename = videoDetails.dataset.filename;
+
+let showingFilename = false;
+
+
+/* Title is displayed by default, cleaner. */
+
+videoLabel.textContent = videoTitle;
+
+
+/* ≡ button */
+
+videoSwitch.addEventListener("click", function(event) {
+
+    event.preventDefault();
+    event.stopPropagation();
+
+    showingFilename = !showingFilename;
+
+    if (showingFilename) {
+        videoLabel.textContent = videoFilename;
+    } else {
+        videoLabel.textContent = videoTitle;
+    }
+
+});
+
+
+/* This pauses the video whenever it gets collapsed. */
+
+videoDetails.addEventListener("toggle", function() {
+
+    if (!videoDetails.open) {
+        video.pause();
+    }
+
+});
+
+</script>
+
 </body>
 </html>
