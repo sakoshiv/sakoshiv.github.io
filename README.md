@@ -1,2 +1,2 @@
 # sakoshiv.github.io
-Social Links | Homepage
+Socials and other degeneracy.
