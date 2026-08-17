@@ -30,7 +30,7 @@
             background-color: #111111;
             color: #d7d7d7;
             margin: 10px;
-            padding-bottom: 65px;
+            padding-bottom: 30px;
         }
 
         .content {
@@ -151,15 +151,15 @@
             width: calc(100% - 60px);
             max-width: 650px;
             margin: 0 auto;
-            text-align: left;
+            text-align: left; 
         }
 
-        .video-media + .mediaComment {
+        .video-group .mediaComment {
     margin-top: 8px;
     margin-bottom: 25px;
     font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
     text-align: center;
-        }
+}
 
         .video-media details {
             width: 100%;
@@ -225,6 +225,16 @@
             background-color: #000000;
             border-top: 1px solid #404040;
         }
+        .video-group {
+    margin-top: 30px;
+        }
+        blockquote {
+    margin: 15px 0;
+    padding: 0 15px;
+    border-left: 3px solid #555;
+    color: #A7A7A7;
+    font-style: normal;
+}
     </style>
 </head>
 
@@ -273,37 +283,26 @@
         </p2>
 
         <div class="post-header">
-            <h6>Regarding Posts &amp; Formatting</h6>
-            <span class="post-date">08.16.2026</span>
+            <h6>Post Format Testing</h6>
+            <span class="post-date">08.17.2026</span>
         </div>
+      <blockquote>Text here with a single preview sentence. Or as long as the body margin allows.</blockquote>
+<div class="mediaC">
 
-        <p>
-            Text here with a single preview sentence. As long as the body margin allows.
-            In the full post you'll be able to just expand the text. Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-            et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.
-        </p>
+      <img src="../../asset/damn_bro.png" alt="" class="mediaA">
 
-        <div class="mediaC">
-
-            <img src="../../asset/damn_bro.png" alt="" class="mediaA">
-
-            <p class="mediaComment">
-                Lorem ipsum dolor blah blah blah FUCK you buddy.
-            </p>
+      <p class="mediaComment">
+    Lorem ipsum dolor blah blah blah. So on and so forth.</p>
 
         </div>
 
         <p>
-          I cleaned up the code and it still looks nice. Not bad honestly. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+          I cleaned up the code and it still looks nice so that's cool. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
       ut labore et dolore magna aliqua. </p>
 
         <p>
-            This is all set up for dumping info. Lots of text. Not an issue if you aren't an illiterate fuck.
-            Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.
-            The styling on this page can use some clean-up.
-        </p>
+          This is all set up for dumping info. Lots of text. Not an issue if you aren't an illiterate fuck.
+           Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Not saying you should be able to read gibberish latin though.</p>
 
         <h6>Lorem Ipsum Header Text</h6>
 
@@ -316,27 +315,27 @@
 
         <!-- Video media -->
 
-        <div class="video-media">
+        <div class="video-group">
 
-            <details open
-                     data-title="Ambrosia Sea Spell"
-                     data-filename="[RB] - [07.17.26] - [10.32.PM] - ID[58].mp4">
+    <div class="video-media">
 
-                <summary>
-                    <span class="video-arrow">▶</span>
+        <details open
+                 data-title="Ambrosia Sea Spell"
+                 data-filename="[RB] - [07.17.26] - [10.32.PM] - ID[58].mp4">
 
-                    <span class="video-label">Ambrosia Sea Spell</span>
+            <summary>
+                <span class="video-arrow">▶</span>
+                <span class="video-label">Ambrosia Sea Spell</span>
+                <span class="video-switch" title="Toggle title / filename">≡</span>
+            </summary>
 
-                    <span class="video-switch" title="Toggle title / filename">≡</span>
-                </summary>
+            <video controls preload="metadata">
+                <source src="../../asset/[RB] - [07.17.26] - [10.32.PM] - ID[58].mp4"
+                        type="video/mp4">
+                Your browser does not support HTML5 video.
+            </video>
 
-                <video controls preload="metadata">
-                    <source src="../../asset/[RB] - [07.17.26] - [10.32.PM] - ID[58].mp4"
-                            type="video/mp4">
-                    Your browser does not support HTML5 video.
-                </video>
-
-            </details>
+        </details>
 
         </div>
 
@@ -345,21 +344,21 @@
         </p>
 
         <p>
-            Video media embedding isn't looing too bad. Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+          Video media embedding isn't looing too bad. Both image and video media should have margins of 30px. Too close is ugly. Lorem ipsum dolor sit amet, consectetur adipiscing elit,
             sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.
             Risus commodo viverra maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur
             adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse
             ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.
-        </p>
+      </p>
 
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.
-        </p>
-
-    </div>
+        <blockquote>"Here's some quote text. Originally intended for the description but this works too.</blockquote>
+<p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.
+    </p>
+</div>
 
 </div>
 
