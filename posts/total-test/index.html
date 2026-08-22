@@ -1,0 +1,473 @@
+<!doctype html>
+<html><head>
+<!-- Open Graph -->
+<meta property="og:title" content="Sako - Total Test">
+<meta property="og:description" content="Formatting and testing here.">
+<meta property="og:image" content="https://sakoshiv.github.io/asset/image: post-preview-02.webp">
+<meta property="og:url" content="https://sakoshiv.github.io/posts/total-test/">
+<meta property="og:type" content="website">
+<meta name="twitter:title" content="Sako | Total Test">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="675">
+<!-- General -->
+<title>Sako | Total Test</title>
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#111111">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="asset/eyecon.ico" sizes="any">
+<meta charset="utf-8">
+
+    <style>
+        a {
+            color: #A7A7A7;
+        }
+
+        a:visited {
+            color: #A7A7A7;
+        }
+
+        .subtle-link {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .subtle-link:hover {
+    text-decoration: underline;
+    font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #111111;
+            color: #d7d7d7;
+            margin: 10px;
+            padding-bottom: 30px;
+        }
+
+        .content {
+            max-width: 715px;
+            margin: 0 auto;
+            padding: 25px 20px 0;
+            text-align: center;
+        }
+
+        /* Header */
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header-logo {
+            width: 260px;
+        }
+
+        .socials {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        @media (max-width: 700px) {
+            .header-logo {
+                display: none;
+            }
+        }
+
+        /* General text */
+
+        .text {
+            text-align: left;
+            font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+            color: #d7d7d7;
+        }
+
+        .text p {
+    margin: 15 0 30px;
+    font-size: medium;
+    font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+    color: #d7d7d7;
+        }
+
+        .text h6 {
+    margin: 5px 0;
+    margin-top: 20px;
+    font-size: xx-large;
+    font-weight: bold;
+    font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+        }
+
+        .breadcrumbs {
+            color: #A7A7A7;
+        }
+
+        /* Separator */
+
+        hr {
+            border: 0;
+            border-top: 2px solid #404040;
+            margin: 20px 0;
+        }
+
+        /* Post header */
+
+        .post-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .post-header h6 {
+    margin: 30px 0 15x;
+    font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+    font-weight: bold;
+        }
+
+        .post-date {
+            font-size: 0.8em;
+            color: #A7A7A7;
+        }
+
+        /* Image/GIF media */
+
+        .mediaC {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+ /* Media container & Comment */
+        .mediaA {
+            display: block;
+            max-width: calc(100% - 30px);
+            height: auto;
+            margin: 0 auto;
+        }
+
+        .mediaComment {
+            margin: 8px 0 25px;
+            font-size: small !important;
+            font-family: inherit !important;
+            color: #A7A7A7 !important;
+        }
+
+        .mediaC .mediaComment {
+    margin: 8px 0 25px;
+    font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+        }
+
+        /* Video media */
+
+        .video-media {
+            width: calc(100% - 60px);
+            max-width: 650px;
+            margin: 0 auto;
+            text-align: left; 
+        }
+
+        .video-group .mediaComment {
+    margin-top: 8px;
+    margin-bottom: 25px;
+    font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+    text-align: center;
+}
+
+        .video-media details {
+            width: 100%;
+            border: 1px solid #404040;
+            border-radius: 6px;
+            overflow: hidden;
+            background-color: #111111;
+            isolation: isolate;
+        }
+
+        .video-media details:not([open]) .video-content {
+            display: none;
+        }
+
+        .video-content {
+            contain: layout paint;
+        }
+
+        .video-media summary {
+            display: flex;
+            align-items: center;
+            padding: 8px 10px;
+            background-color: #161616;
+            color: #d7d7d7;
+            font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+            font-size: 14px;
+            cursor: pointer;
+            user-select: none;
+            list-style: none;
+        }
+
+        .video-media summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .video-arrow {
+            display: inline-block;
+            margin-right: 8px;
+            font-size: 9px;
+            color: #A7A7A7;
+            transition: transform 0.1s ease;
+        }
+
+        .video-media details[open] .video-arrow {
+            transform: rotate(90deg);
+        }
+
+        .video-label {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .video-switch {
+            margin-left: auto;
+            padding-left: 12px;
+            color: #A7A7A7;
+            font-size: 17px;
+            line-height: 1;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .video-switch:hover {
+            color: #d7d7d7;
+        }
+
+        .video-media video {
+            display: block;
+            width: 100%;
+            height: auto;
+            background-color: #000000;
+            border-top: 1px solid #404040;
+        }
+        .video-group {
+    margin-top: 30px;
+        }
+        blockquote {
+    margin: 15px 0;
+    padding: 0 15px;
+    border-left: 3px solid #555;
+    color: #A7A7A7;
+    font-style: normal;
+}
+    </style>
+</head>
+
+<body>
+
+<div class="content">
+
+    <div class="header"> <a href="https://sakoshiv.github.io/about/"><img class="header-logo" src="../../asset/eyecon-sako.svg" alt="" width="260"></a>
+
+        <div class="socials">
+            <a href="https://x.com/sakoshiv">
+                <img src="../../asset/X.svg" alt="" width="30">
+            </a>
+
+            <a href="https://instagram.com/sakoshiv">
+                <img src="../../asset/IG.svg" alt="" width="30">
+            </a>
+
+            <a href="https://twitch.tv/sakoshiv">
+                <img src="../../asset/TTV.svg" alt="" width="30">
+            </a>
+
+            <a href="https://youtube.com/@sakoshiv">
+                <img src="../../asset/YT.svg" alt="" width="30">
+            </a>
+
+            <a href="https://misskey.io/@sakoshiv">
+                <img src="../../asset/MK.svg" alt="" width="30">
+            </a>
+
+            <a href="https://odaibako.net/u/sakoshiv">
+                <img src="../../asset/OD.svg" alt="" width="30">
+            </a>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="text">
+
+        <p2 class="breadcrumbs">
+            » <a href="https://sakoshiv.github.io/" class="subtle-link">Home</a>
+            » <a href="https://sakoshiv.github.io/posts/" class="subtle-link">Posts</a>
+            » <a href="https://sakoshiv.github.io/posts/total-test/" class="subtle-link">Total Test</a>
+        </p2>
+
+
+        <div class="post-header">
+            <h6>Total Test</h6>
+            <span class="post-date">08.22.2026</span>
+        </div>
+
+
+
+<blockquote>This is a total test of a markdown  to HMTL script.</blockquote>
+
+<div class="mediaC">
+
+      <img src="../../asset/post-preview-02.webp" alt="" class="mediaA">
+
+      <p class="mediaComment">
+    It's all fucked????!!??.</p>
+
+        </div>
+
+        <p>
+          This script was a total pain in the ass to create. I hope it actually applies correctly. I might even replace the old HTML for the original placeholder post.
+      </p>
+
+        <p>
+          Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. More latin placeholder text. Amazing shit.
+      </p>
+
+<h6>Video Media</h6>
+
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      </p>
+
+<!-- Video media -->
+
+        <div class="video-group">
+
+    <div class="video-media">
+
+        <details open
+                 data-title="Halo 2 Snipes (at 4:3 on KBM)"
+                 data-filename="h2_snipe.mp4">
+
+            <summary>
+                <span class="video-arrow">▶</span>
+                <span class="video-label">Halo 2 Snipes (at 4:3 on KBM)</span>
+                <span class="video-switch" title="Toggle title / filename">≡</span>
+            </summary>
+
+            <div class="video-content">
+                <video controls preload="metadata">
+                    <source src="../../asset/h2_snipe.mp4"
+                            type="video/mp4">
+                    Your browser does not support HTML5 video.
+                </video>
+            </div>
+
+        </details>
+
+        </div>
+
+        <p class="mediaComment">
+          I'm sniping pretty well on KBM controls.
+      </p>
+
+        </div>
+
+        <p>
+          Risus commodo viverra maecenas accumsan lacus vel facilisis. I want to test multiple video embeds. For future proofing. As well as multiple images.
+      </p>
+
+<blockquote>"Test out some quote text, to sell the formatting I guess."</blockquote>
+
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      </p>
+
+<!-- Video media -->
+
+        <div class="video-group">
+
+    <div class="video-media">
+
+        <details open
+                 data-title="Noita Mimicium Spell"
+                 data-filename="[RB] - [07.17.26] - [10.32.PM] - ID[58].mp4">
+
+            <summary>
+                <span class="video-arrow">▶</span>
+                <span class="video-label">Noita Mimicium Spell</span>
+                <span class="video-switch" title="Toggle title / filename">≡</span>
+            </summary>
+
+            <div class="video-content">
+                <video controls preload="metadata">
+                    <source src="../../asset/[RB] - [07.17.26] - [10.32.PM] - ID[58].mp4"
+                            type="video/mp4">
+                    Your browser does not support HTML5 video.
+                </video>
+            </div>
+
+        </details>
+
+        </div>
+
+        <p class="mediaComment">
+          Noita clip with some bullshit happening.
+      </p>
+
+        </div>
+
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      </p>
+
+        <p>
+          Here's another image too.
+      </p>
+
+<div class="mediaC">
+
+      <img src="../../asset/huh.png" alt="" class="mediaA">
+
+      <p class="mediaComment">
+    Thought provoking image.</p>
+
+        </div>
+
+        <p>
+          I'll have to update and fix some shit but visually it's okay.
+      </p>
+    </div>
+
+<script>
+    /* Video title / filename toggle */
+
+    document.querySelectorAll(".video-media details").forEach(function (videoDetails) {
+        const videoLabel = videoDetails.querySelector(".video-label");
+        const videoSwitch = videoDetails.querySelector(".video-switch");
+        const video = videoDetails.querySelector("video");
+
+        const videoTitle = videoDetails.dataset.title;
+        const videoFilename = videoDetails.dataset.filename;
+
+        let showingFilename = false;
+
+        videoLabel.textContent = videoTitle;
+
+        videoSwitch.addEventListener("click", function (event) {
+            event.preventDefault();
+            event.stopPropagation();
+
+            showingFilename = !showingFilename;
+            videoLabel.textContent = showingFilename ? videoFilename : videoTitle;
+        });
+
+        /* Pause the video whenever this specific video gets collapsed. */
+
+        videoDetails.addEventListener("toggle", function () {
+            if (!videoDetails.open) {
+                video.pause();
+            }
+        });
+    });
+</script>
+
+</div>
+
+</body>
+</html>

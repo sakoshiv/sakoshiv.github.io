@@ -3,7 +3,7 @@
 <!-- Open Graph -->
 <meta property="og:title" content="Sako - Placeholder Post">
 <meta property="og:description" content="Formatting and testing here.">
-<meta property="og:image" content="https://sakoshiv.github.io/asset/post-preview-01.webp">
+<meta property="og:image" content="https://sakoshiv.github.io/asset/image: post-preview-01.webp">
 <meta property="og:url" content="https://sakoshiv.github.io/posts/placeholder-post/">
 <meta property="og:type" content="website">
 <meta name="twitter:title" content="Sako | Placeholder Post">
@@ -178,6 +178,15 @@
             border-radius: 6px;
             overflow: hidden;
             background-color: #111111;
+            isolation: isolate;
+        }
+
+        .video-media details:not([open]) .video-content {
+            display: none;
+        }
+
+        .video-content {
+            contain: layout paint;
         }
 
         .video-media summary {
@@ -292,11 +301,16 @@
             » <a href="https://sakoshiv.github.io/posts/placeholder-post/" class="subtle-link">Placeholder Post</a>
         </p2>
 
+
         <div class="post-header">
             <h6>Post Format Testing</h6>
-            <span class="post-date">08.21.2026</span>
+            <span class="post-date">08.22.2026</span>
         </div>
-      <blockquote>Text here with a single preview sentence. Or as long as the body margin allows.</blockquote>
+
+
+
+<blockquote>Text here with a single preview sentence. Or as long as the body margin allows.</blockquote>
+
 <div class="mediaC">
 
       <img src="../../asset/damn_bro.png" alt="" class="mediaA">
@@ -307,23 +321,20 @@
         </div>
 
         <p>
-          I cleaned up the code and it still looks nice so that's cool. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-      ut labore et dolore magna aliqua. </p>
+          I cleaned up the code and it still looks nice so that's cool. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      </p>
 
         <p>
-          This is all set up for dumping info. Lots of text. Not an issue if you aren't an illiterate fuck.
-          Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Not to say  you should be able to read gibberish latin.</p>
+          This is all set up for dumping info. Lots of text. Not an issue if you aren't an illiterate fuck. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Not to say you should be able to read gibberish latin.
+      </p>
 
-        <h6>Lorem Ipsum Header Text</h6>
+<h6>Lorem Ipsum Header Text</h6>
 
         <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.
-        </p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.
+      </p>
 
-        <!-- Video media -->
+<!-- Video media -->
 
         <div class="video-group">
 
@@ -339,11 +350,13 @@
                 <span class="video-switch" title="Toggle title / filename">≡</span>
             </summary>
 
-            <video controls preload="metadata">
-                <source src="../../asset/[RB] - [07.17.26] - [10.32.PM] - ID[58].mp4"
-                        type="video/mp4">
-                Your browser does not support HTML5 video.
-            </video>
+            <div class="video-content">
+                <video controls preload="metadata">
+                    <source src="../../asset/[RB] - [07.17.26] - [10.32.PM] - ID[58].mp4"
+                            type="video/mp4">
+                    Your browser does not support HTML5 video.
+                </video>
+            </div>
 
         </details>
 
@@ -353,53 +366,49 @@
           It's actually mimicium.
       </p>
 
+        </div>
+
         <p>
-          Video media embedding isn't looking too bad. Both image and video media should have margins of 30px. Too close is ugly. Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.
-            Risus commodo viverra maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur
-            adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse
-            ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.
+          Video media embedding isn't looking too bad. Both image and video media should have margins of 30px. Too close is ugly. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.
       </p>
 
-        <blockquote>"Here's some quote text. Originally intended for the description but this works too."</blockquote>
-<p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    </p>
-</div>
+<blockquote>"Here's some quote text. Originally intended for the description but this works too."</blockquote>
 
-</div>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      </p>
+    </div>
 
 <script>
     /* Video title / filename toggle */
 
-    const videoDetails = document.querySelector(".video-media details");
-    const videoLabel = document.querySelector(".video-label");
-    const videoSwitch = document.querySelector(".video-switch");
-    const video = document.querySelector(".video-media video");
+    document.querySelectorAll(".video-media details").forEach(function (videoDetails) {
+        const videoLabel = videoDetails.querySelector(".video-label");
+        const videoSwitch = videoDetails.querySelector(".video-switch");
+        const video = videoDetails.querySelector("video");
 
-    const videoTitle = videoDetails.dataset.title;
-    const videoFilename = videoDetails.dataset.filename;
+        const videoTitle = videoDetails.dataset.title;
+        const videoFilename = videoDetails.dataset.filename;
 
-    let showingFilename = false;
+        let showingFilename = false;
 
-    videoLabel.textContent = videoTitle;
+        videoLabel.textContent = videoTitle;
 
-    videoSwitch.addEventListener("click", function (event) {
-        event.preventDefault();
-        event.stopPropagation();
+        videoSwitch.addEventListener("click", function (event) {
+            event.preventDefault();
+            event.stopPropagation();
 
-        showingFilename = !showingFilename;
-        videoLabel.textContent = showingFilename ? videoFilename : videoTitle;
-    });
+            showingFilename = !showingFilename;
+            videoLabel.textContent = showingFilename ? videoFilename : videoTitle;
+        });
 
-    /* Pause the video whenever it gets collapsed. */
+        /* Pause the video whenever this specific video gets collapsed. */
 
-    videoDetails.addEventListener("toggle", function () {
-        if (!videoDetails.open) {
-            video.pause();
-        }
+        videoDetails.addEventListener("toggle", function () {
+            if (!videoDetails.open) {
+                video.pause();
+            }
+        });
     });
 </script>
 
