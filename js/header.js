@@ -1,0 +1,56 @@
+(() => {
+    const mount = document.getElementById("site-header");
+    if (!mount) return;
+
+    // Resolve assets relative to this script so the header works at any page depth.
+    const script = document.currentScript;
+    const siteRoot = new URL("../", script.src).href;
+
+    mount.innerHTML = `
+        <div class="header">
+            <a href="https://sakoshiv.github.io/about/">
+                <img class="header-logo" src="${siteRoot}asset/eyecon-sako.svg" alt="" width="260">
+            </a>
+
+            <div class="socials">
+                <a href="https://x.com/sakoshiv">
+                    <img src="${siteRoot}asset/X.svg" alt="" width="30">
+                </a>
+
+                <a href="https://instagram.com/sakoshiv">
+                    <img src="${siteRoot}asset/IG.svg" alt="" width="30">
+                </a>
+
+                <a href="https://twitch.tv/sakoshiv">
+                    <img src="${siteRoot}asset/TTV.svg" alt="" width="30">
+                </a>
+
+                <a href="https://youtube.com/@sakoshiv">
+                    <img src="${siteRoot}asset/YT.svg" alt="" width="30">
+                </a>
+
+                <a href="https://misskey.io/@sakoshiv">
+                    <img src="${siteRoot}asset/MK.svg" alt="" width="30">
+                </a>
+
+                <a href="https://odaibako.net/u/sakoshiv">
+                    <img src="${siteRoot}asset/OD.svg" alt="" width="30">
+                </a>
+            </div>
+        </div>
+
+        <div class="tagline-row">
+            <p class="tagline" id="scrambleText" aria-label="TLL">
+                <span style="color: #A7A7A7" aria-hidden="true">&nbsp;</span>
+            </p>
+
+            <p class="tagline-nav">
+                <a href="https://sakoshiv.github.io/" class="subtle-link">Home</a> |
+                <a href="https://sakoshiv.github.io/posts/" class="subtle-link">Posts</a> |
+                <a href="https://sakoshiv.github.io/about/" class="subtle-link">About</a>
+            </p>
+        </div>
+
+        <hr>
+    `;
+})();

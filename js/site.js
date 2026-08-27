@@ -12,7 +12,6 @@
         }, 500);
     }
 
-
     /* Video title / filename toggle */
 
     const videoDetails = document.querySelector(".video-media details");
