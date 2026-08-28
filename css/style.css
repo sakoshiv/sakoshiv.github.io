@@ -31,7 +31,7 @@ body {
     text-align: center;
 }
 
-/* Header + centralized tagline row (markup lives in js/header.js) */
+/* Header / Tagline row */
 
 .header {
     display: flex;
@@ -64,7 +64,7 @@ body {
 }
 
 .text p {
-    margin: 15 0 30px;
+    margin: 15px 0px 30px;
     font-size: medium;
     font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
     color: #d7d7d7;

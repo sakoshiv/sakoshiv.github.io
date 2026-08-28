@@ -6,7 +6,6 @@
     const taglineLines = [
         "No one's watching, no one cares.",
         "The internet is noise and people are bored.",
-        "Nothing important is happening online.",
         "Just more noise on the internet.",
         "Upper echelon internet poisoned schizophrenic.",
         "A shiv is a sharp makeshift weapon often used in survival situations.",
@@ -15,7 +14,6 @@
         "None of this means anything to anyone (but me.)",
         "A highly curated personality designed to appeal specifically to you!",
         "Less is more.",
-        "Fuck minimalism and maximalism. Bring back subtlety.",
         "Inertia, schema, qualia."
     ];
 

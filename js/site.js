@@ -1,4 +1,4 @@
-/* Copy/paste box */
+/* Copy/paste box (used in about page) */
 
     function copyBox(button) {
         const input = button.previousElementSibling;
@@ -69,7 +69,7 @@
             videoLabel.textContent = showingFilename ? videoFilename : videoTitle;
         });
 
-        /* Pause the video whenever this specific video gets collapsed. */
+        /* Pause the video whenever a specific video gets collapsed. */
 
         videoDetails.addEventListener("toggle", function () {
             if (!videoDetails.open) {

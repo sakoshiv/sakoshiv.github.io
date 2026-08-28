@@ -60,7 +60,7 @@ const randomContent = [
         gif: "asset/miho_lurk.png",
         width: 605,
         height: 340,
-        text: "You clicked the link, thanks for the personal information."
+        text: "Hello."
     }
 
 ];
