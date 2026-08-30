@@ -15,13 +15,66 @@
 <link rel="icon" href="asset/eyecon.ico" sizes="any">
 <meta charset="utf-8">
 <link rel="stylesheet" href="css/style.css">
+<link rel="preload" href="js/header.js" as="script">
+<link rel="preload" href="js/tagline.js" as="script">
 </head>
 
 <body>
 
+<!--
+                                                                                                    
+ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ 
+ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$XXxxxxxxXXXXXXxxxxxxxxXXXX$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ 
+ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$XXxxxXXXXXXXXXXXXXXXXXXXXXXXXXXXXXxx+xXXX$$$$$$$$$$$$$$$$$$$$$$$$$$$$ 
+ $$$$$$$$$$$$$$$$$$$$$$$$$XxxxXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXxxxXX$$$$$$$$$$$$$$$$$$$$$$ 
+ $$$$$$$$$$$$$$$$$$$$$$XxxXXXXXXXXXXXXXXXXXXXXXXxXXXXXXXXXXXXXXXxxXXXXXXXXXXXxxxxXXX$$$$$$$$$$$$$$$ 
+ $$$$$$$$$$$$$$$$$$$X+xXXXXXXXXXXXXxxXXXXXXXXXx+XXXXXXXXXxXxXXXXXX+XXXXXXXXXXXXXxxXXXXXXX$$$$$$$$$$ 
+ $$$$$$$$$$$$$$$$$X+xXXXXXXXXXXXXX+XXXXXXXXx++;XXXXXX+XXx+Xx+XXXXXX+xXXXXXXXXXXXXXXXxX$$$$$$$$$$$$$ 
+ $$$$$$$$$$$$$$$$XxXXXXXXXXXXXXXX+x+xXXXXx++xxxXXXXx;+XX+xxX++XXXXXX+XXX+xXXXxxXXXXXXXXX$$$$$$$$$$$ 
+ $$$$$$$$$$$$$$XxXXXXXXXXXXXXXXXxx++XXXx+++X$xXXX++X$+x+X$+Xxx+xXXXXxxxXX+XxXXX+XXXXXXXXXxX$$$$$$$$ 
+ $$$$$$$$$$$$$XxXXXXXXXXXXXXXXXx++;+Xx++;xxxx+Xx+:+x+++$$$XxxXx+xXXXxXxxXxxxxXXx+XXXXXXxxxxx$$$$$$$ 
+ $$$$$$$$$$$X+XXXXXXXXXXXx:;XXXx+;;+x++:+xxxx+++;::::::;++x++$X++xXXx$X+Xx$++xXX+xXXXXXXX;xxx$$$$$$ 
+ $$$$$$$$$$xxXXXXX+:+xXx;.+XXXXx;++++;::::+xx+;+xx+:::::::;++;++++Xxx$$Xxx$$++xXxxXXx+xXXX;xX+$$$$$ 
+ $$$$$$$$XxXXXXXXXXXx;..:xxxxXxXx++;+:::::::+xxxxxxx+:::::::;:::;+x;:+x+;+x+;xxx;+xXx+++XXxx;X$$$$$ 
+ $$$$$$$xxXXXXXXXXXXx:.;X$x$$xX$xx++++::::::::+xxxxxxx+::::::xXX;++:::;xxxxx;:x++++xX+x++XxxXx$$$$$ 
+ $$$$XxXXxXXXXXXXXX;.;XXX$XX$$xX$$x+;X;:::::::::+xxxxxxx+::::X$$;X$+::::;xxxx+:::+++X++++xXx$X$$$$$ 
+ $X+xxX$xXXXXXXXXX;:xxXXx$$+$$$x$$$+X+$$XXx;;;::::+xxxxxxx;:;X$$$$$+::::::+xxxx;::++x;++++xX$$$$$$$ 
+ $$$$$$XxXxxXXXXXXXXX+X$+$$xX$$x$$$XxXXxX$X$$X$X$X$Xxx++++x+$$$$$$$x:::::::;xxxx+;+++++xx+x$$$$$$$$ 
+ $$$$$XxXx+xXXXxXXxx++X$$$$$$$$$$$$$+xXXXxx$$$$$$$$$$$$X$$$$$$$$$$$X+:::::::;+xxx;+++X+Xx;X$$$$$$$$ 
+ $$$$$xx+++xXx+xXXxX$Xx$$$$$$$$$$$$$$xxXXxxx+xX$$$$$$$$$$$$$$$$$$XX$$$Xx+;;::;xx+;+;X$$$XX$$$$$$$$$ 
+ $$$$$x++x+x++++x+++x$x$$$$$$$$$$$$$$$+xXXXXxx$XX$$$$$$$$$$$$$$$$$$$$$$$$$$XXX$x+;XxX$$$$$$$$$$$$$$ 
+ $$$$$XX$x++++++++++++Xx$$$$$$$$$$$$$$X;;++xXXXxX$$$$$$$$$$XXXxX$$$$$$$$$$$$$$$xX$$XxxX$$$$$$$$$$$$ 
+ $$$$$$$$X+++++;+;++++X$$$$$$$$$$$$$$$X++++xXx+++x+x$$$$$$$$$$$$$$$$$$$$$$$$$$xX$$$$xX$X+X$$$$$$$$$ 
+ $$$$$$$$$x+x$$xx$+++++$$$$$$$$$$$$$$$Xx+X$$$$$X$$$$$$$$$$$$$$$$$$$$$$$$$$$$$xX$$$$$xxX$$$$$$$$$$$$ 
+ $$$$$$$$$$$$$$$$$X+++++$$Xx$$$XXxXX$$XX+XxXX$$$$$$$$$$$$$$$$$$$$$$$$$$$$Xx+XXX$$$$$xxxX$$$$$$$$$$$ 
+ $$$$$$$$$$$$$$$$$$x+xX$Xx++xxxxx++xXXxx+XXXXxxxXX$$$$$$$$$$$$$$$$XXx++XXXX+XXXX$$$XX$$$$$$$$$$$$$$ 
+ $$$$$$$$$$$$$$$$$$$$$$x+xxxxxxxxxxxxxx++x+xXXXXXXXxxxxxxxxx++++++++++++xxXXXXXXXX$+xX$$$$$$$$$$$$$ 
+ $$$$$$$$$$$$$$$xxxxxxx+xxxxxxxxxxxxxxxxxxxx;xxxxXXXXX++++++;+++++++++;;+xXXXXxxxxxxxxxxX$$$$$$$$$$ 
+ $$$$$$$$$$$$$X++x++++++xxxxxxxxxxxxxxxxxxxx+XXXXXXXXx+XXx+X;;;;+;+++++;+++++++xX$$$$$$$x+;xX$$$$$$ 
+ $$$$$$$$$$$$$xxxxxxxxx++xxxxxxxxxxxxxxxxxxx+xXXXXXXxxX+;xX++;;;++++++++;++++++xxxxxxxxxxxxx+$$$$$$ 
+ $$$$$$$$$$$$X+xxxxxxxx+xx+++xx+++++xxxxxxxxx;+;xXXxx;.:..;Xx;++;;+xx+++;+++++++xxxxxxxxxxxx+x$$$$$ 
+ $$$$$$$$$$$$x+xxxxxxxx+;+xxxxxxxxxxx++++xxxx;++;+;+XXXX;.:;xx;++++xxxxx+;++++++xxxxxxxxxxxxx+$$$$$ 
+ $$$$$$$$$$$$X+x+xxxxxxx;xxxxxxxxxxxxxxxxx+;+;;;;++++++xX:.xx::;+xx+++xxx;;+++++++xxxxxxxxxxx+X$$$$ 
+ $$$$$$$$$$$$$++++++++++;xxxxxxxxxxxxxxxxxx;++++++++++xxx+..+XX;.:+x++xxx+;;;;;++++xxxxxxxxxx+X$$$$ 
+ $$$$$$$$$$$$$$+++++++++;xxxxxxxxxxxxxxxxxx+++++xxxxxxxxxx+..:+x+;..:;xxx+;+;++++;;+++++++++++X$$$$ 
+ $$$$$$$$$$$$$$$x++++++++xxxxxxxxxxxxxxxxxx+xxxxxx++++++xxx;..;++;+;..:+x+;++;++++++xxxxxxxxxx+$$$$ 
+ $$$$$$$$$$$$$$$X++++++++xxxxxxxxxxxxxxxxxx;xxxxxxxxxxxxxxx++++++++x+++xxxx+;;+++++++xxxxxxxxx+X$$$ 
+ $$$$$$$$$$$$$$$x+++++++xxxxxxxxxxxxxxxxxxx;xxxxxxxxxxxxxxxxxxxxxxxx++;+;+xxx+;++++++xxxxxxxxxx+X$$ 
+ $$$$$$$$$$$$$$$$$+++;+xxxxxxxxxxxxxxxxxxxx+xxxxx++++xxxxxxxxxxxxxxxxxxxxx+;+xx;+++++xxxxxxxxxxx+x$ 
+ $$$$$$$$$$$$$$$$$x++;xxxxxxxxxxxxxxxxxxxxx;xxxx+....+xxxxxxxxxxxxxxxx:..+x++x+x;++++xxxxxxxxxxxx+X 
+ $$$$$$$$$$$$$$$$$X++;xxxxxxxxxxxxxxxxxxxxx;xxxxxxx+xxxxxxxxxxxxxxxxx++::;++;++++;+++++xxxxxxxxxxxx 
+ $$$$$$$$$$$$$$$$$$X+xxxxxxxxxxxxxxxxxxxxx+;xxxxxxxxxxxxxxxxxxx++++++++++++;;++++;+++++++xxxxxxxx+x 
+ $$$$$$$$$$$$$$$$$$$$x+xxxxxxxxxxxxxxxxxxx;++++++++++++++++++++++++++++++++;;++++;++++++++++xxxxx;X 
+ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ 
+
+-->
+
+
 <div class="content">
 
     <div id="site-header"></div>
+    <script src="js/header.js"></script>
+    <script src="js/tagline.js"></script>
 
     <div class="text">
 
@@ -42,7 +95,5 @@
 </div>
 
 <script src="js/random-content.js"></script>
-<script src="js/header.js"></script>
-<script src="js/tagline.js"></script>
 </body>
 </html>

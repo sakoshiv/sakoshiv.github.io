@@ -4,7 +4,7 @@ const randomContent = [
         gif: "asset/neko.gif",
         width: 498,
         height: 373,
-        text: "Yuki."
+        text: "Catgirls are real BTW."
     },
 
     {

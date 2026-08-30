@@ -9,32 +9,32 @@
     mount.innerHTML = `
         <div class="header">
             <a href="https://sakoshiv.github.io/about/">
-                <img class="header-logo" src="${siteRoot}asset/eyecon-sako.svg" alt="" width="260">
+                <img class="header-logo" src="${siteRoot}asset/eyecon-sako.svg" alt="" width="260" height="41" fetchpriority="high">
             </a>
 
             <div class="socials">
                 <a href="https://x.com/sakoshiv">
-                    <img src="${siteRoot}asset/X.svg" alt="" width="30">
+                    <img src="${siteRoot}asset/X.svg" alt="" width="30" height="30" fetchpriority="high">
                 </a>
 
                 <a href="https://instagram.com/sakoshiv">
-                    <img src="${siteRoot}asset/IG.svg" alt="" width="30">
+                    <img src="${siteRoot}asset/IG.svg" alt="" width="30" height="30" fetchpriority="high">
                 </a>
 
                 <a href="https://twitch.tv/sakoshiv">
-                    <img src="${siteRoot}asset/TTV.svg" alt="" width="30">
+                    <img src="${siteRoot}asset/TTV.svg" alt="" width="30" height="30" fetchpriority="high">
                 </a>
 
                 <a href="https://youtube.com/@sakoshiv">
-                    <img src="${siteRoot}asset/YT.svg" alt="" width="30">
+                    <img src="${siteRoot}asset/YT.svg" alt="" width="30" height="30" fetchpriority="high">
                 </a>
 
                 <a href="https://misskey.io/@sakoshiv">
-                    <img src="${siteRoot}asset/MK.svg" alt="" width="30">
+                    <img src="${siteRoot}asset/MK.svg" alt="" width="30" height="30" fetchpriority="high">
                 </a>
 
                 <a href="https://odaibako.net/u/sakoshiv">
-                    <img src="${siteRoot}asset/OD.svg" alt="" width="30">
+                    <img src="${siteRoot}asset/OD.svg" alt="" width="30" height="30" fetchpriority="high">
                 </a>
             </div>
         </div>
