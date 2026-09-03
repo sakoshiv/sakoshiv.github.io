@@ -1,63 +1,63 @@
 const randomContent = [
 
     {
-        gif: "asset/neko.gif",
+        gif: "asset/img/neko.gif",
         width: 498,
         height: 373,
         text: "Catgirls are real BTW."
     },
 
     {
-        gif: "asset/mako.jpg",
+        gif: "asset/img/mako.jpg",
         width: 640,
         height: 480,
         text: "ぐぬぬ..."
     },
 
     {
-        gif: "asset/mako_killdozer.png",
+        gif: "asset/img/mako_killdozer.png",
         width: 500,
         height: 500,
         text: "BREAKING NEWS"
     },
 
     {
-        gif: "asset/mako_jump.gif",
+        gif: "asset/img/mako_jump.gif",
         width: 760,
         height: 420,
         text: "I should blow my shit smoove off."
     },
 
     {
-        gif: "asset/bokodeath.gif",
+        gif: "asset/img/bokodeath.gif",
         width: 340,
         height: 432,
         text: "Look at what you fucking did."
     },
 
     {
-        gif: "asset/mako_ride.gif",
+        gif: "asset/img/mako_ride.gif",
         width: 340,
         height: 454,
         text: "Give this a gander."
     },
     
     {
-        gif: "asset/damn_bro.png",
+        gif: "asset/img/damn_bro.png",
         width: 1920,
         height: 957,
         text: "Why did you say that?"
     },
 
     {
-        gif: "asset/huh.png",
+        gif: "asset/img/huh.png",
         width: 616,
         height: 389,
         text: "Is the name Sako is familiar?"
     },
 
     {
-        gif: "asset/miho_lurk.png",
+        gif: "asset/img/miho_lurk.png",
         width: 605,
         height: 340,
         text: "Hello."
