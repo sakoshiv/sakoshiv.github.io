@@ -8,7 +8,7 @@
 
     mount.innerHTML = `
         <div class="header">
-            <a href="https://sakoshiv.github.io/about/">
+            <a>
                 <img class="header-logo" src="${siteRoot}asset/eyecon-sako.svg" alt="" width="260" height="41" fetchpriority="high">
             </a>
 
@@ -47,6 +47,7 @@
             <p class="tagline-nav">
                 <a href="https://sakoshiv.github.io/" class="subtle-link">Home</a> |
                 <a href="https://sakoshiv.github.io/posts/" class="subtle-link">Posts</a> |
+                <a href="https://sakoshiv.github.io/gallery/" class="subtle-link">Gallery</a> |
                 <a href="https://sakoshiv.github.io/about/" class="subtle-link">About</a>
             </p>
         </div>
