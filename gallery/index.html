@@ -3,7 +3,7 @@
 <!-- Open Graph -->
 <meta property="og:title" content="Sako | Gallery">
 <meta property="og:description" content="A bunch of images. For no reason.">
-<meta property="og:image" content="https://sakoshiv.github.io/asset/sys/1x1.webp">
+<meta property="og:image" content="https://sakoshiv.github.io/media/sys/1x1.webp">
 <meta property="og:url" content="https://sakoshiv.github.io/gallery/">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary">
@@ -12,11 +12,11 @@
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#111111">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" href="../asset/sys/eyecon.ico" sizes="any">
+<link rel="icon" href="../media/sys/eyecon.ico" sizes="any">
 <meta charset="utf-8">
-<link rel="stylesheet" href="../css/style.css">
-<link rel="preload" href="../js/header.js" as="script">
-<link rel="preload" href="../js/tagline.js" as="script">
+<link rel="stylesheet" href="../code/css/style.css">
+<link rel="preload" href="../code/js/header.js" as="script">
+<link rel="preload" href="../code/js/tagline.js" as="script">
 <style>
     .gallery-row {
         margin-top: 30px;
@@ -142,8 +142,8 @@
 <div class="content">
 
     <div id="site-header"></div>
-    <script src="../js/header.js"></script>
-    <script src="../js/tagline.js"></script>
+    <script src="../code/js/header.js"></script>
+    <script src="../code/js/tagline.js"></script>
 
     <div class="text">
 
@@ -151,20 +151,20 @@
             » <a href="https://sakoshiv.github.io/gallery/" class="subtle-link">Gallery</a>
         </p2>
 
-        <p>Another work in progress page.</p>
+        <p>Shitposts as placeholder media. A work in progress page.</p>
 
         <div class="gallery-row">
-            <div class="gallery-item"><img src="../asset/img/damn_bro.webp" alt="" data-title="Dude Please Stop Talking"></div>
-            <div class="gallery-item"><img src="../asset/img/post-preview-02.webp" alt="" data-title="Nadeko IDK"></div>
-            <div class="gallery-item"><img src="../asset/img/mako_ride.gif" alt="" data-title="Mako Riding A Fuckin Horse Dot GIF"></div>
-            <div class="gallery-item"><img src="../asset/img/screenshot-01166.webp" alt="" data-title="Would you stomp on her for 30 trillion dollars? I would."></div>
-            <div class="gallery-item"><img src="../asset/img/miho_lurk.png" alt="" data-title="Creepy Low Res. Miho"></div>
-            <div class="gallery-item"><img src="../asset/img/bokodeath.gif" alt="" data-title="Total Boko Death"></div>
-            <div class="gallery-item"><img src="../asset/img/spinny.gif" alt="" data-title="Transparency Test"></div>
-            <div class="gallery-item"><img src="../asset/img/huh.png" alt="" data-title="What?"></div>
-            <div class="gallery-item"><img src="../asset/img/neko.gif" alt="" data-title="God I Wish That Were Me"></div>
-            <div class="gallery-item"><img src="../asset/img/neet.jpg" alt="" data-title="I'm running out of unique placeholder media."></div>
-            <div class="gallery-item"><img src="../asset/img/dont.jpg" alt="" data-title="Avoid alcohol and drugs."></div>
+          <div class="gallery-item"><img src="../media/img/thumb/damn_bro_thumb.webp" data-full="../media/img/damn_bro.webp" alt="" data-title="Dude Please Stop Talking"></div>
+            <div class="gallery-item"><img src="../media/img/thumb/post-preview-02_thumb.webp" data-full="../media/img/post-preview-02.webp" alt="" data-title="Nadeko IDK"></div>
+            <div class="gallery-item"><img src="../media/img/thumb/mako_ride_thumb.gif" data-full="../media/img/mako_ride.gif" alt="" data-title="Mako Riding A Fuckin Horse Dot GIF"></div>
+            <div class="gallery-item"><img src="../media/img/thumb/screenshot-01166_thumb.webp" data-full="../media/img/screenshot-01166.webp" alt="" data-title="Would you stomp on her for 30 trillion dollars? I would."></div>
+            <div class="gallery-item"><img src="../media/img/thumb/miho_lurk_thumb.webp" data-full="../media/img/miho_lurk.png" alt="" data-title="Creepy Low Res. Miho"></div>
+            <div class="gallery-item"><img src="../media/img/thumb/bokodeath_thumb.gif" data-full="../media/img/bokodeath.gif" alt="" data-title="Total Boko Death"></div>
+            <div class="gallery-item"><img src="../media/img/thumb/spinny_thumb.gif" data-full="../media/img/spinny.gif" alt="" data-title="Transparency Test"></div>
+            <div class="gallery-item"><img src="../media/img/thumb/huh_thumb.webp" data-full="../media/img/huh.png" alt="" data-title="What?"></div>
+            <div class="gallery-item"><img src="../media/img/thumb/neko_thumb.gif" data-full="../media/img/neko.gif" alt="" data-title="God I Wish That Were Me"></div>
+            <div class="gallery-item"><img src="../media/img/thumb/neet_thumb.webp" data-full="../media/img/neet.jpg" alt="" data-title="I'm running out of unique placeholder media."></div>
+            <div class="gallery-item"><img src="../media/img/thumb/dont_thumb.webp" data-full="../media/img/dont.jpg" alt="" data-title="Avoid alcohol and drugs."></div>
         </div>
 
         <p></p>
@@ -173,9 +173,9 @@
 </div>
 
 <div class="lightbox-overlay" id="lightbox">
-    <img class="lightbox-nav lightbox-nav-left" id="lightbox-prev" src="../asset/sys/left.svg" alt="Previous">
+    <img class="lightbox-nav lightbox-nav-left" id="lightbox-prev" src="../media/sys/left.svg" alt="Previous">
     <img id="lightbox-img" src="" alt="">
-    <img class="lightbox-nav lightbox-nav-right" id="lightbox-next" src="../asset/sys/right.svg" alt="Next">
+    <img class="lightbox-nav lightbox-nav-right" id="lightbox-next" src="../media/sys/right.svg" alt="Next">
     <div class="lightbox-caption" id="lightbox-caption"></div>
 </div>
 
@@ -191,7 +191,7 @@
 
         function show(index) {
             currentIndex = (index + items.length) % items.length;
-            overlayImg.src = items[currentIndex].src;
+            overlayImg.src = items[currentIndex].dataset.full;
             caption.textContent = items[currentIndex].dataset.title || '';
             overlay.classList.add('active');
         }

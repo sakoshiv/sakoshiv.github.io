@@ -4,43 +4,43 @@
 
     // Resolve assets relative to this script so the header works at any page depth.
     const script = document.currentScript;
-    const siteRoot = new URL("../", script.src).href;
+    const siteRoot = new URL("../../", script.src).href;
 
     mount.innerHTML = `
         <div class="header">
             <a>
-                <img class="header-logo" src="${siteRoot}asset/sys/eyecon-sako.svg" alt="" width="260" height="41" fetchpriority="high">
+                <img class="header-logo" src="${siteRoot}media/sys/eyecon-sako.svg" alt="" width="260" height="41" fetchpriority="high">
             </a>
 
             <div class="socials">
                 <a href="https://x.com/sakoshiv">
-                    <img src="${siteRoot}asset/sys/X.svg" alt="" width="30" height="30" fetchpriority="high">
+                    <img src="${siteRoot}media/sys/X.svg" alt="" width="30" height="30" fetchpriority="high">
                 </a>
 
                 <a href="https://instagram.com/sakoshiv">
-                    <img src="${siteRoot}asset/sys/IG.svg" alt="" width="30" height="30" fetchpriority="high">
+                    <img src="${siteRoot}media/sys/IG.svg" alt="" width="30" height="30" fetchpriority="high">
                 </a>
 
                 <a href="https://twitch.tv/sakoshiv">
-                    <img src="${siteRoot}asset/sys/TTV.svg" alt="" width="30" height="30" fetchpriority="high">
+                    <img src="${siteRoot}media/sys/TTV.svg" alt="" width="30" height="30" fetchpriority="high">
                 </a>
 
                 <a href="https://youtube.com/@sakoshiv">
-                    <img src="${siteRoot}asset/sys/YT.svg" alt="" width="30" height="30" fetchpriority="high">
+                    <img src="${siteRoot}media/sys/YT.svg" alt="" width="30" height="30" fetchpriority="high">
                 </a>
 
                 <a href="https://misskey.io/@sakoshiv">
-                    <img src="${siteRoot}asset/sys/MK.svg" alt="" width="30" height="30" fetchpriority="high">
+                    <img src="${siteRoot}media/sys/MK.svg" alt="" width="30" height="30" fetchpriority="high">
                 </a>
 
                 <a href="https://odaibako.net/u/sakoshiv">
-                    <img src="${siteRoot}asset/sys/OD.svg" alt="" width="30" height="30" fetchpriority="high">
+                    <img src="${siteRoot}media/sys/OD.svg" alt="" width="30" height="30" fetchpriority="high">
                 </a>
             </div>
         </div>
 
         <div class="tagline-row">
-            <img class="header-logo-compact" src="${siteRoot}asset/sys/compact.svg" alt="" width="64" height="32" fetchpriority="high">
+            <img class="header-logo-compact" src="${siteRoot}media/sys/compact.svg" alt="" width="64" height="32" fetchpriority="high">
 
             <p class="tagline" id="scrambleText" aria-label="TLL">
                 <span style="color: #A7A7A7" aria-hidden="true">&nbsp;</span>
