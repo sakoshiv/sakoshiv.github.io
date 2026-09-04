@@ -43,7 +43,7 @@ const randomContent = [
     },
     
     {
-        gif: "asset/img/damn_bro.png",
+        gif: "asset/img/damn_bro.webp",
         width: 1920,
         height: 957,
         text: "Why did you say that?"
