@@ -40,6 +40,8 @@
         </div>
 
         <div class="tagline-row">
+            <img class="header-logo-compact" src="${siteRoot}asset/sys/compact.svg" alt="" width="64" height="32" fetchpriority="high">
+
             <p class="tagline" id="scrambleText" aria-label="TLL">
                 <span style="color: #A7A7A7" aria-hidden="true">&nbsp;</span>
             </p>

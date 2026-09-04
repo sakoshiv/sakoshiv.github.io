@@ -43,6 +43,10 @@ body {
     width: 260px;
 }
 
+.header-logo-compact {
+    display: none;
+}
+
 .socials {
     display: flex;
     align-items: center;
@@ -54,16 +58,20 @@ body {
         display: none;
     }
 
+    .header-logo-compact {
+        display: block;
+    }
+
     .socials {
         display: none;
     }
 
     .tagline-row {
         justify-content: flex-start;
+        gap: 10px;
     }
 
     .tagline-nav {
-        width: 100%;
         text-align: left;
         font-size: 13px;
     }
