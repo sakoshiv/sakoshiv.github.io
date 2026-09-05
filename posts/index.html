@@ -17,6 +17,184 @@
     <link rel="stylesheet" href="../code/css/style.css">
 <link rel="preload" href="../code/js/header.js" as="script">
 <link rel="preload" href="../code/js/tagline.js" as="script">
+<style>
+    /* Tighter paragraph spacing for the post list, scoped to this page only. */
+    .post-list p {
+        margin: 15px 0 10px;
+    }
+
+    .post-month-group {
+        margin-bottom: 40px;
+    }
+
+    .posts-body {
+        position: relative;
+    }
+
+    .posts-toolbar {
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    @media (max-width: 700px) {
+        .posts-toolbar {
+            display: none;
+        }
+    }
+
+    .filter-toggle,
+    .sort-toggle {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        background: none;
+        border: none;
+        padding: 0;
+    }
+
+    .filter-toggle img,
+    .sort-toggle img {
+        width: 20px;
+        height: 20px;
+        opacity: 0.5;
+    }
+
+    .filter-toggle:hover img,
+    .sort-toggle:hover img {
+        opacity: 1;
+    }
+
+    .sort-toggle img {
+        transition: none;
+    }
+
+    .sort-toggle.reversed img {
+        transform: scaleY(-1);
+    }
+
+    .filter-wrapper {
+        position: relative;
+    }
+
+    .tag-filter-panel {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: calc(100% + 8px);
+        width: 380px;
+        background: #1a1a1a;
+        border: 1px solid #333;
+        border-radius: 6px;
+        z-index: 100;
+        font-size: 14px;
+        overflow: hidden;
+    }
+
+    @media (max-width: 700px) {
+        .tag-filter-panel {
+            top: calc(100% + 8px);
+            left: auto;
+            right: 0;
+            max-width: calc(100vw - 24px);
+        }
+    }
+
+    .tag-filter-panel.open {
+        display: block;
+    }
+
+    .tag-filter-body {
+        display: flex;
+    }
+
+    .tag-filter-groups {
+        width: 150px;
+        border-right: 1px solid #333;
+        padding: 10px 0;
+    }
+
+    .tag-filter-group-label {
+        padding: 4px 14px 10px;
+        color: #7a7a7a;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+    }
+
+    .tag-filter-group {
+        display: flex;
+        justify-content: space-between;
+        padding: 6px 14px;
+        cursor: pointer;
+        color: #d7d7d7;
+    }
+
+    .tag-filter-group span {
+        color: #7a7a7a;
+    }
+
+    .tag-filter-group:hover {
+        background: #232323;
+    }
+
+    .tag-filter-group.active {
+        background: #232323;
+        color: #fff;
+    }
+
+    .tag-filter-items {
+        flex: 1;
+        padding: 10px 14px;
+    }
+
+    .tag-filter-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 6px 0;
+        cursor: pointer;
+        color: #d7d7d7;
+        user-select: none;
+    }
+
+    .tag-filter-checkbox {
+        width: 15px;
+        height: 15px;
+        border: 1px solid #666;
+        border-radius: 3px;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 11px;
+        line-height: 1;
+    }
+
+    .tag-filter-item[data-state="include"] .tag-filter-checkbox {
+        background: #8b8b8b;
+        border-color: #8b8b8b;
+        color: #fff;
+    }
+
+    .tag-filter-item[data-state="exclude"] .tag-filter-checkbox {
+        background: #c0392b;
+        border-color: #c0392b;
+        color: #fff;
+    }
+
+    .tag-filter-footer {
+        border-top: 1px solid #333;
+        padding: 8px 14px;
+        color: #7a7a7a;
+        font-size: 12px;
+        text-align: center;
+        cursor: pointer;
+    }
+</style>
 </head>
 
 <body>
@@ -30,15 +208,308 @@
   <div class="text">
 
     <p2 class="breadcrumbs">
-            » <a href="https://sakoshiv.github.io/" class="subtle-link">Home</a>
-            » <a href="https://sakoshiv.github.io/posts/" class="subtle-link">Posts</a>
+            » <a href="/" class="subtle-link">Home</a>
+            » <a href="/posts/" class="subtle-link">Posts</a>
         </p2>
 
-      <h6 style="font-size: large;">September 2026</h6>
-<p>❮04❯ <a href="https://sakoshiv.github.io/posts/placeholder/">Placeholder</a> » This post is a placeholder. It was created to test various things.</p>
-</div>
+      <div class="posts-body">
+      <div class="posts-toolbar">
+          <button class="sort-toggle" id="sortToggle" aria-label="Change sort order">
+              <img src="../media/sys/order.svg" alt="">
+          </button>
+
+          <div class="filter-wrapper">
+              <button class="filter-toggle" id="tagFilterToggle" aria-label="Filter by tag">
+                  <img src="../media/sys/filter.svg" alt="">
+              </button>
+
+              <div class="tag-filter-panel" id="tagFilterPanel">
+                  <div class="tag-filter-body">
+                      <div class="tag-filter-groups">
+                          <div class="tag-filter-group-label">Tag Groups</div>
+                          <div class="tag-filter-group active" data-group="content-type">Content Type <span>5</span></div>
+                          <div class="tag-filter-group" data-group="years">Years <span>2</span></div>
+                          <div class="tag-filter-group" data-group="months">Months <span>12</span></div>
+                          <div class="tag-filter-group" data-group="quarters">Quarters <span>4</span></div>
+                      </div>
+                      <div class="tag-filter-items" id="tagFilterItems"></div>
+                  </div>
+                  <div class="tag-filter-footer" id="tagFilterApply">Click boxes to cycle visiblity state. Then click here to apply filters.</div>
+              </div>
+          </div>
+      </div>
+
+      <div class="post-month-group">
+          <h6 style="font-size: large;">September 2026</h6>
+          <div class="post-list">
+<p data-tags="Updates, September, 2026, Q3">❮12❯ <a href="/posts/placeholder/">September Update</a> » All posts below are placeholders/tests. They have no meaning.</p>
+<p data-tags="Manga/Doujin, September, 2026, Q3">❮09❯ <a href="/posts/placeholder/">Finality</a> » I just thought the word was cool. This is a placeholder post.</p>
+<p data-tags="Game Modding, September, 2026, Q3">❮07❯ <a href="/posts/placeholder/">Future Of Tags</a> » Explaining the tag system and what that entails.</p>
+<p data-tags="Information, September, 2026, Q3">❮06❯ <a href="/posts/placeholder/">Informational Post</a> » A bit of an info dump. It's a clusterfuck.</p>
+<p data-tags="September, 2026, Q3, Updates, Placeholder">❮04❯ <a href="/posts/placeholder/">Placeholder</a> » This post is a placeholder. It was created to test various things.</p>
+          </div>
+      </div>
+
+      <div class="post-month-group">
+          <h6 style="font-size: large;">August 2026</h6>
+          <div class="post-list">
+<p data-tags="Information, August, 2026, Q3">❮28❯ <a href="/posts/placeholder/">Under Construction</a> » Notes on what's still being built out.</p>
+<p data-tags="Updates, August, 2026, Q3">❮15❯ <a href="/posts/placeholder/">Early Progress</a> » A quick look at where things stood a month ago.</p>
+          </div>
+      </div>
+
+      <div class="post-month-group">
+          <h6 style="font-size: large;">July 2026</h6>
+          <div class="post-list">
+<p data-tags="Game Modding, July, 2026, Q3">❮03❯ <a href="/posts/placeholder/">First Mod Attempt</a> » Tinkering with something that isn't the website for once.</p>
+          </div>
+      </div>
+
+      <div class="post-month-group">
+          <h6 style="font-size: large;">June 2026</h6>
+          <div class="post-list">
+<p data-tags="Updates, June, 2026, Q2">❮24❯ <a href="/posts/placeholder/">Mid-Year Check-In</a> » A quick look at how things are tracking.</p>
+<p data-tags="Manga/Doujin, June, 2026, Q2">❮08❯ <a href="/posts/placeholder/">Random Thoughts</a> » Nothing important.</p>
+          </div>
+      </div>
+
+      <div class="post-month-group">
+          <h6 style="font-size: large;">May 2026</h6>
+          <div class="post-list">
+<p data-tags="Information, May, 2026, Q2">❮19❯ <a href="/posts/placeholder/">Slow Progress</a> » Things are moving, just not quickly.</p>
+<p data-tags="Game Modding, May, 2026, Q2">❮04❯ <a href="/posts/placeholder/">Small Fixes</a> » A handful of little things patched up.</p>
+          </div>
+      </div>
+
+      <div class="post-month-group">
+          <h6 style="font-size: large;">April 2026</h6>
+          <div class="post-list">
+<p data-tags="Placeholder, April, 2026, Q2">❮08❯ <a href="/posts/placeholder/">Spring Cleaning</a> » Tidying up some loose ends on the site.</p>
+          </div>
+      </div>
+
+      <div class="post-month-group">
+          <h6 style="font-size: large;">March 2026</h6>
+          <div class="post-list">
+<p data-tags="Updates, March, 2026, Q1">❮27❯ <a href="/posts/placeholder/">New Layout Ideas</a> » Sketching out some ideas for the site.</p>
+<p data-tags="Manga/Doujin, March, 2026, Q1">❮14❯ <a href="/posts/placeholder/">Reading List</a> » A few things worth mentioning from this month.</p>
+          </div>
+      </div>
+
+      <div class="post-month-group">
+          <h6 style="font-size: large;">February 2026</h6>
+          <div class="post-list">
+<p data-tags="Information, February, 2026, Q1">❮21❯ <a href="/posts/placeholder/">Short Update</a> » Not much to report this month.</p>
+          </div>
+      </div>
+
+      <div class="post-month-group">
+          <h6 style="font-size: large;">January 2026</h6>
+          <div class="post-list">
+<p data-tags="Updates, January, 2026, Q1">❮30❯ <a href="/posts/placeholder/">New Year Notes</a> » Starting the year off with a few plans.</p>
+<p data-tags="Game Modding, January, 2026, Q1">❮06❯ <a href="/posts/placeholder/">Getting Organized</a> » Sorting things out before diving back in.</p>
+          </div>
+      </div>
+
+      <div class="post-month-group">
+          <h6 style="font-size: large;">December 2025</h6>
+          <div class="post-list">
+<p data-tags="Updates, December, 2025, Q4">❮20❯ <a href="/posts/placeholder/">Year In Review</a> » Wrapping up the year with a look back.</p>
+<p data-tags="Information, December, 2025, Q4">❮05❯ <a href="/posts/placeholder/">Holiday Downtime</a> » Not much happening, and that's fine.</p>
+          </div>
+      </div>
+
+      <div class="post-month-group">
+          <h6 style="font-size: large;">November 2025</h6>
+          <div class="post-list">
+<p data-tags="Manga/Doujin, November, 2025, Q4">❮18❯ <a href="/posts/placeholder/">Causality</a> » Cause and effect. This post has the Manga/Doujin tag.</p>
+<p data-tags="Game Modding, November, 2025, Q4">❮02❯ <a href="/posts/placeholder/">Old Save File</a> » Digging up something from years ago.</p>
+          </div>
+      </div>
+
+      <div class="post-month-group">
+          <h6 style="font-size: large;">October 2025</h6>
+          <div class="post-list">
+<p data-tags="Updates, October, 2025, Q4">❮22❯ <a href="/posts/placeholder/">Fresh Start</a> » Beginning to lay the groundwork for this site.</p>
+<p data-tags="Information, October, 2025, Q4">❮09❯ <a href="/posts/placeholder/">Why This Exists</a> » A short explanation of the point of all this.</p>
+          </div>
+      </div>
+
+      <div class="post-month-group">
+          <h6 style="font-size: large;">September 2025</h6>
+          <div class="post-list">
+<p data-tags="Updates, September, 2025, Q3">❮25❯ <a href="/posts/placeholder/">Last September</a> » A look back at how things were a year ago.</p>
+<p data-tags="Information, September, 2025, Q3">❮10❯ <a href="/posts/placeholder/">Old Notes</a> » Some leftover notes from around this time.</p>
+          </div>
+      </div>
+
+      <div class="post-month-group">
+          <h6 style="font-size: large;">August 2025</h6>
+          <div class="post-list">
+<p data-tags="Game Modding, August, 2025, Q3">❮17❯ <a href="/posts/placeholder/">Testing Things</a> » Trying out something new before it was ready.</p>
+          </div>
+      </div>
+
+      <div class="post-month-group">
+          <h6 style="font-size: large;">July 2025</h6>
+          <div class="post-list">
+<p data-tags="Manga/Doujin, July, 2025, Q3">❮01❯ <a href="/posts/placeholder/">First Draft</a> » An early attempt at something that came later.</p>
+          </div>
+      </div>
+      </div>
+  </div>
 
 </div>
+
+<script>
+    (function () {
+        const groups = {
+            "content-type": ["Updates", "Information", "Placeholder", "Game Modding", "Manga/Doujin"],
+            "years": ["2025", "2026"],
+            "months": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+            "quarters": ["Q1", "Q2", "Q3", "Q4"],
+        };
+
+        const state = {}; // tag label -> "include" | "exclude" (absence = neutral)
+
+        const toggleBtn = document.getElementById("tagFilterToggle");
+        const panel = document.getElementById("tagFilterPanel");
+        const itemsEl = document.getElementById("tagFilterItems");
+        const applyBtn = document.getElementById("tagFilterApply");
+        const groupEls = document.querySelectorAll(".tag-filter-group");
+        const postEls = document.querySelectorAll(".post-list p[data-tags]");
+        let monthGroupEls = Array.from(document.querySelectorAll(".post-month-group"));
+        const postsBody = document.querySelector(".posts-body");
+        const toolbar = document.querySelector(".posts-toolbar");
+        const sortBtn = document.getElementById("sortToggle");
+
+        function nextState(current) {
+            if (current === "include") return "exclude";
+            if (current === "exclude") return undefined;
+            return "include";
+        }
+
+        function alignToolbar() {
+            const visibleGroup = Array.from(monthGroupEls).find((g) => g.style.display !== "none");
+            if (!visibleGroup) return;
+            const heading = visibleGroup.querySelector("h6");
+            if (!heading) return;
+            const bodyRect = postsBody.getBoundingClientRect();
+            const headingRect = heading.getBoundingClientRect();
+            toolbar.style.top = (headingRect.top - bodyRect.top) + "px";
+        }
+
+        function applyFilters() {
+            const includeTags = Object.keys(state).filter((t) => state[t] === "include");
+            const excludeTags = Object.keys(state).filter((t) => state[t] === "exclude");
+
+            postEls.forEach((p) => {
+                const postTags = p.dataset.tags.split(",").map((t) => t.trim());
+
+                const isExcluded = excludeTags.some((t) => postTags.includes(t));
+                const matchesInclude = includeTags.length === 0 || includeTags.some((t) => postTags.includes(t));
+
+                p.style.display = (!isExcluded && matchesInclude) ? "" : "none";
+            });
+
+            monthGroupEls.forEach((group) => {
+                const hasVisiblePost = Array.from(group.querySelectorAll("p[data-tags]"))
+                    .some((p) => p.style.display !== "none");
+                group.style.display = hasVisiblePost ? "" : "none";
+            });
+
+            alignToolbar();
+        }
+
+        function renderItems(groupKey) {
+            itemsEl.innerHTML = "";
+            groups[groupKey].forEach((label) => {
+                const row = document.createElement("div");
+                row.className = "tag-filter-item";
+                row.dataset.state = state[label] || "neutral";
+
+                const box = document.createElement("span");
+                box.className = "tag-filter-checkbox";
+                box.textContent = state[label] === "include" ? "✓" : state[label] === "exclude" ? "✕" : "";
+
+                const text = document.createElement("span");
+                text.textContent = label;
+
+                row.appendChild(box);
+                row.appendChild(text);
+
+                row.addEventListener("click", (e) => {
+                    e.stopPropagation();
+                    state[label] = nextState(state[label]);
+                    renderItems(groupKey);
+                });
+
+                itemsEl.appendChild(row);
+            });
+        }
+
+        groupEls.forEach((el) => {
+            el.addEventListener("click", () => {
+                groupEls.forEach((g) => g.classList.remove("active"));
+                el.classList.add("active");
+                renderItems(el.dataset.group);
+            });
+        });
+
+        toggleBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            panel.classList.toggle("open");
+        });
+
+        sortBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            const parent = monthGroupEls[0].parentElement;
+            monthGroupEls.reverse();
+            monthGroupEls.forEach((group) => parent.appendChild(group));
+            sortBtn.classList.toggle("reversed");
+            alignToolbar();
+        });
+
+        applyBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            applyFilters();
+        });
+
+        document.addEventListener("click", (e) => {
+            if (!panel.contains(e.target) && e.target !== toggleBtn) {
+                panel.classList.remove("open");
+            }
+        });
+
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape") {
+                panel.classList.remove("open");
+            }
+        });
+
+        function applyFromURL() {
+            const params = new URLSearchParams(window.location.search);
+            const tag = params.get("tag");
+            if (!tag) return;
+
+            state[tag] = "include";
+
+            const groupKey = Object.keys(groups).find((g) => groups[g].includes(tag));
+            if (groupKey) {
+                groupEls.forEach((g) => g.classList.toggle("active", g.dataset.group === groupKey));
+                renderItems(groupKey);
+            }
+
+            applyFilters();
+        }
+
+        window.addEventListener("resize", alignToolbar);
+
+        renderItems("content-type");
+        applyFromURL();
+        alignToolbar();
+    })();
+</script>
 
 </body>
 </html>

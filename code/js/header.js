@@ -47,10 +47,10 @@
             </p>
 
             <p class="tagline-nav">
-                <a href="https://sakoshiv.github.io/" class="subtle-link">Home</a> |
-                <a href="https://sakoshiv.github.io/posts/" class="subtle-link">Posts</a> |
-                <a href="https://sakoshiv.github.io/gallery/" class="subtle-link">Gallery</a> |
-                <a href="https://sakoshiv.github.io/about/" class="subtle-link">About</a>
+                <a href="/" class="subtle-link">Home</a> |
+                <a href="/posts/" class="subtle-link">Posts</a> |
+                <a href="/gallery/" class="subtle-link">Gallery</a> |
+                <a href="/about/" class="subtle-link">About</a>
             </p>
         </div>
 

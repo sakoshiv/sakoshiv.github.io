@@ -20,6 +20,58 @@
     <link rel="stylesheet" href="../../code/css/style.css">
 <link rel="preload" href="../../code/js/header.js" as="script">
 <link rel="preload" href="../../code/js/tagline.js" as="script">
+<style>
+    .post-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 8px;
+        font-size: small;
+    }
+
+    .post-footer-tags {
+        margin: 0;
+        color: #A7A7A7;
+    }
+
+    .tag-chip {
+        display: inline-block;
+        background: #1d2f42;
+        color: #7bb0e8;
+        border-radius: 6px;
+        padding: 4px 12px;
+        margin-left: 2px;
+        font-size: 12px;
+        text-decoration: none;
+    }
+
+    .tag-chip,
+    .tag-chip:link,
+    .tag-chip:visited,
+    .tag-chip:hover,
+    .tag-chip:active {
+        color: #7bb0e8;
+    }
+
+    .tag-chip:hover {
+        background: #24405a;
+    }
+
+    .post-footer-top {
+        display: flex;
+        align-items: center;
+    }
+
+    @media (max-width: 700px) {
+        .post-footer-tags {
+            display: none;
+        }
+
+        .post-footer {
+            justify-content: flex-end;
+        }
+    }
+</style>
 </head>
 
 <body>
@@ -33,9 +85,9 @@
     <div class="text">
 
         <p2 class="breadcrumbs">
-            » <a href="https://sakoshiv.github.io/" class="subtle-link">Home</a>
-            » <a href="https://sakoshiv.github.io/posts/" class="subtle-link">Posts</a>
-            » <a href="https://sakoshiv.github.io/posts/placeholder/" class="subtle-link">Placeholder</a>
+            » <a href="/" class="subtle-link">Home</a>
+            » <a href="/posts/" class="subtle-link">Posts</a>
+            » <a href="/posts/placeholder/" class="subtle-link">Placeholder</a>
         </p2>
 
 
@@ -140,7 +192,6 @@
 
         <p>
       Here's another image. Footer text sometime soon. End of placeholder post.</p>
-
 <div class="mediaC">
 
       <img src="../../media/img/huh.png" alt="" class="mediaA">
@@ -149,6 +200,22 @@
     What a thought provoking image.</p>
 
         </div>
+
+<p> Footer portion will have tags and such.&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+<hr>
+<div class="post-footer">
+  <p class="post-footer-tags" data-tags="September, 2026, Q3, Updates, Placeholder">Tags:
+    <a href="/posts/?tag=September" class="tag-chip">September</a>
+    <a href="/posts/?tag=2026" class="tag-chip">2026</a>
+    <a href="/posts/?tag=Q3" class="tag-chip">Q3</a>
+    <a href="/posts/?tag=Updates" class="tag-chip">Updates</a>
+    <a href="/posts/?tag=Placeholder" class="tag-chip">Placeholder</a>
+  </p>
+    <a href="#" class="post-footer-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;" aria-label="Back to top">
+        <img src="../../media/sys/top.svg" alt="" width="16" height="16">
+    </a>
+</div>
+
 </div>
 </div>
 
