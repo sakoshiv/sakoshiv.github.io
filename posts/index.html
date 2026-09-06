@@ -29,6 +29,7 @@
 
     .posts-body {
         position: relative;
+        display: flow-root;
     }
 
     .posts-toolbar {
@@ -88,7 +89,6 @@
         width: 380px;
         background: #1a1a1a;
         border: 1px solid #333;
-        border-radius: 6px;
         z-index: 100;
         font-size: 14px;
         overflow: hidden;
@@ -194,6 +194,13 @@
         text-align: center;
         cursor: pointer;
     }
+
+    .text p.no-posts-message {
+        margin-top: 100px;
+        color: #A7A7A7;
+        text-align: center;
+        font-size: small;
+    }
 </style>
 </head>
 
@@ -238,6 +245,8 @@
               </div>
           </div>
       </div>
+
+      <p id="noPostsMessage" class="no-posts-message" style="display: none;">There are no posts being shown. Check the applied filters.</p>
 
       <div class="post-month-group">
           <h6 style="font-size: large;">September 2026</h6>
@@ -382,6 +391,7 @@
         const postsBody = document.querySelector(".posts-body");
         const toolbar = document.querySelector(".posts-toolbar");
         const sortBtn = document.getElementById("sortToggle");
+        const noPostsMsg = document.getElementById("noPostsMessage");
 
         function nextState(current) {
             if (current === "include") return "exclude";
@@ -417,6 +427,9 @@
                     .some((p) => p.style.display !== "none");
                 group.style.display = hasVisiblePost ? "" : "none";
             });
+
+            const anyVisible = Array.from(postEls).some((p) => p.style.display !== "none");
+            noPostsMsg.style.display = anyVisible ? "none" : "";
 
             alignToolbar();
         }
