@@ -13,6 +13,8 @@
         "Mentally stable guy with normal thoughts in his head.",
         "None of this means anything to anyone (but me.)",
         "A highly curated personality designed to appeal specifically to you!",
+        "A collection of some random bullshit.",
+        "Worthless NEET fuckall.",
         "Less is more."
     ];
 

@@ -17,11 +17,8 @@
 <link rel="stylesheet" href="code/css/style.css">
 <link rel="preload" href="code/js/header.js" as="script">
 <link rel="preload" href="code/js/tagline.js" as="script">
-</head>
 
-<body>
-
-<!--
+<!-- 
                                                                                                     
  $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ 
  $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$XXxxxxxxXXXXXXxxxxxxxxXXXX$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ 
@@ -69,6 +66,148 @@
 
 -->
 
+<style>
+    .home-grid {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 12px;
+        margin-top: 20px;
+    }
+
+    .home-col-media {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        flex: 0 1 25%;
+        min-width: 160px;
+    }
+
+    .home-col-text {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        flex: 1 1 75%;
+        min-width: 300px;
+    }
+
+    .home-card {
+        background: #1a1a1a;
+        border: 1px solid #333;
+        padding: 10px;
+    }
+
+    .home-card p.home-card-title {
+    color: #d7d7d7;
+    font-size: 14px;
+    letter-spacing: 0.03em;
+    margin: 0 0 10px;
+    padding-bottom: 10px;
+    padding-left: 4px;
+    border-bottom: 1px solid #333;
+    font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+    }
+
+    .home-card p {
+    margin: 0;
+    color: #d7d7d7;
+    font-size: small;
+    padding-left: 4px;
+    }
+
+    .home-card .mediaComment {
+    padding-left: 0;
+    }
+
+    .home-gallery-preview {
+        cursor: pointer;
+        aspect-ratio: 3 / 4;
+        overflow: hidden;
+        max-width: 130px;
+        margin: 0 auto;
+    }
+
+    .home-gallery-preview img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    .home-card .mediaC {
+        margin-top: 10px;
+    }
+
+    .home-card .mediaComment {
+        margin: 8px 0 0;
+    }
+
+    @media (max-width: 700px) {
+        .home-grid {
+            flex-direction: column;
+        }
+
+        .home-col-media,
+        .home-col-text {
+            display: contents;
+        }
+
+        .card-latest-post {
+            order: 1;
+        }
+
+        .card-look-at-this {
+            order: 2;
+        }
+
+        .card-brief-update {
+            order: 3;
+        }
+
+        .card-gallery-entry {
+            order: 4;
+        }
+    }
+
+    .lightbox-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+    }
+
+    .lightbox-overlay.active {
+        display: flex;
+    }
+
+    .lightbox-overlay img {
+        max-width: 80vw;
+        max-height: 85vh;
+        object-fit: contain;
+        cursor: default;
+    }
+
+    .lightbox-caption {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 7.5%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: #d7d7d7;
+        font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+        font-size: 14px;
+        pointer-events: none;
+    }
+</style>
+</head>
+
+<body>
 
 <div class="content">
 
@@ -82,17 +221,77 @@
             » <a href="/" class="subtle-link">Home</a>
         </p2>
 
-        <p>Not bad for someone who has no clue what the fuck they're doing. Still needs work though.</p>
+        <div class="home-grid">
+            <div class="home-col-text">
+                <div class="home-card card-latest-post">
+                    <p class="home-card-title">LATEST POST</p>
+                    <p><a href="/posts/placeholder/">Placeholder</a> » This post is a placeholder. It was created to test various things.</p>
+                </div>
 
-        <div class="mediaC">
-            <img id="random-gif" src="media/img/neko.gif" alt="" class="mediaA">
-          <p id="random-text" class="mediaComment">&nbsp;</p>
+                <div class="home-card card-look-at-this">
+                    <p class="home-card-title">VERY IMPORTANT SHIT</p>
+                    <div class="mediaC">
+                        <img id="random-gif" src="media/img/neko.gif" alt="" class="mediaA">
+                        <p id="random-text" class="mediaComment">&nbsp;</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="home-col-media">
+                <div class="home-card card-gallery-entry">
+                    <p class="home-card-title">LATEST IMG</p>
+                    <div class="home-gallery-preview" id="homeGalleryPreview" data-full="media/img/screenshot-01166.webp" data-title="Would you stomp on her for 30 trillion dollars? I would.">
+                        <img src="media/img/thumb/screenshot-01166_thumb.webp" alt="">
+                    </div>
+                </div>
+
+                <div class="home-card card-brief-update">
+                    <p class="home-card-title">QUICK UPDATE</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+            </div>
         </div>
 
         <p></p>
 
   </div>
 </div>
+
+<div class="lightbox-overlay" id="homeLightbox">
+    <img id="homeLightboxImg" src="" alt="">
+    <div class="lightbox-caption" id="homeLightboxCaption"></div>
+</div>
+
+<script>
+    (function () {
+        const trigger = document.getElementById('homeGalleryPreview');
+        const overlay = document.getElementById('homeLightbox');
+        const img = document.getElementById('homeLightboxImg');
+        const caption = document.getElementById('homeLightboxCaption');
+
+        function open() {
+            img.src = trigger.dataset.full;
+            caption.textContent = trigger.dataset.title || '';
+            overlay.classList.add('active');
+        }
+
+        function close() {
+            overlay.classList.remove('active');
+            img.src = '';
+            caption.textContent = '';
+        }
+
+        trigger.addEventListener('click', open);
+
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) close();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') close();
+        });
+    })();
+</script>
 
 <script src="code/js/random-content.js"></script>
 </body>
