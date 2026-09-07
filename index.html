@@ -120,11 +120,25 @@
     }
 
     .home-gallery-preview {
+        position: relative;
         cursor: pointer;
         aspect-ratio: 3 / 4;
         overflow: hidden;
         max-width: 145px;
         margin: 0 auto;
+    }
+
+    .home-gallery-preview::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    .home-gallery-preview:hover::after {
+        opacity: 1;
     }
 
     .home-gallery-preview img {
@@ -166,6 +180,10 @@
 
         .card-gallery-entry {
             order: 4;
+        }
+
+        .home-gallery-preview {
+            max-width: none;
         }
     }
 
