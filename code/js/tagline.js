@@ -14,7 +14,10 @@
         "None of this means anything to anyone (but me.)",
         "A highly curated personality designed to appeal specifically to you!",
         "A collection of some random bullshit.",
-        "Worthless NEET fuckall.",
+        "A worthless NEET.",
+        "I like making things no one will ever see.",
+        "Ambiguity is everything.",
+        "Fuck I thought I had something philosophical to add here.",
         "Less is more."
     ];
 
