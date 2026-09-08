@@ -190,38 +190,103 @@
     .lightbox-overlay {
         position: fixed;
         inset: 0;
-        background: rgba(0, 0, 0, 0.5);
+        background: rgba(0, 0, 0, 0.75);
         display: none;
         align-items: center;
         justify-content: center;
         z-index: 1000;
+        padding: 30px 20px;
     }
 
     .lightbox-overlay.active {
         display: flex;
     }
 
-    .lightbox-overlay img {
-        max-width: 80vw;
-        max-height: 85vh;
-        object-fit: contain;
+    .lightbox-content {
+        width: min(94vw, 1600px, 120vh);
+        max-height: 100%;
+        display: flex;
+        flex-direction: column;
         cursor: default;
+        box-sizing: border-box;
     }
 
-    .lightbox-caption {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 7.5%;
+    .lightbox-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        width: 100%;
+        box-sizing: border-box;
+        color: #d7d7d7;
+        font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+        margin-bottom: 14px;
+    }
+
+    .lightbox-header-left,
+    .lightbox-header-right {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .lightbox-header-right {
+        align-items: flex-end;
+        justify-content: flex-end;
+    }
+
+    .lightbox-title {
+        font-size: 26px;
+        font-weight: bold;
+        color: #fff;
+        margin: 0 0 4px;
+    }
+
+    .lightbox-meta {
+        font-size: 13px;
+        color: #8a8a8a;
+        margin: 0;
+    }
+
+    .lightbox-full-link {
+        font-size: 13px;
+        color: #8a8a8a;
+        white-space: nowrap;
+        margin: 0;
+    }
+
+    .lightbox-full-link a {
+        color: #8a8a8a;
+    }
+
+    .lightbox-full-link a:hover {
+        color: #d7d7d7;
+        text-decoration: underline;
+    }
+
+    .lightbox-body {
+        position: relative;
+        width: 100%;
+        box-sizing: border-box;
         display: flex;
         align-items: center;
         justify-content: center;
-        text-align: center;
-        color: #d7d7d7;
-        font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
-        font-size: 14px;
-        pointer-events: none;
+    }
+
+    .lightbox-frame {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .lightbox-frame img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        cursor: default;
+        display: block;
     }
 </style>
 </head>
@@ -243,7 +308,7 @@
         <div class="home-grid">
             <div class="home-col-text">
                 <div class="home-card card-latest-post">
-                    <p class="home-card-title">Post: Latest</p>
+                    <p class="home-card-title">Latest In Posts</p>
                     <p><a href="/posts/placeholder/">Placeholder</a> » This post is a placeholder. It was created to test various things.</p>
               </div>
 
@@ -258,15 +323,15 @@
 
             <div class="home-col-media">
                 <div class="home-card card-gallery-entry">
-                    <p class="home-card-title">Gallery: Latest</p>
-                    <div class="home-gallery-preview" id="homeGalleryPreview" data-full="media/img/screenshot-01166.webp" data-title="Would you stomp on her for 30 trillion dollars? I would.">
+                    <p class="home-card-title">Latest In Gallery</p>
+                    <div class="home-gallery-preview" id="homeGalleryPreview" data-full="media/img/screenshot-01166.webp" data-title="Captured Kishirika" data-tags="Screenshot, Shitpost" data-date="September 7, 2026" data-entry="Captured-Kishirika">
                         <img src="media/img/thumb/screenshot-01166_thumb.webp" alt="">
                     </div>
                 </div>
 
                 <div class="home-card card-brief-update">
                     <p class="home-card-title">Quick Update</p>
-                    <p>Every page I wanted to implement has been added so far. Cleanup then automation later. This text box makes this amount of text seem like it's not a lot. I can write a whole paragraph here if I needed to. Pretty nice.</p>
+                    <p>Messed around with gallery related stuff a bit. It's kind of a clusterfuck for now but I like the way things look.</p>
                 </div>
             </div>
         </div>
@@ -277,8 +342,22 @@
 </div>
 
 <div class="lightbox-overlay" id="homeLightbox">
-    <img id="homeLightboxImg" src="" alt="">
-    <div class="lightbox-caption" id="homeLightboxCaption"></div>
+    <div class="lightbox-content">
+        <div class="lightbox-header">
+            <div class="lightbox-header-left">
+                <p class="lightbox-title" id="homeLightboxTitle"></p>
+                <p class="lightbox-meta" id="homeLightboxMeta"></p>
+            </div>
+            <div class="lightbox-header-right">
+                <p class="lightbox-full-link"><a href="/gallery/entry/" id="homeLightboxFullLink">View Full Entry</a></p>
+            </div>
+        </div>
+        <div class="lightbox-body">
+            <div class="lightbox-frame">
+                <img id="homeLightboxImg" src="" alt="">
+            </div>
+        </div>
+    </div>
 </div>
 
 <script>
@@ -286,18 +365,65 @@
         const trigger = document.getElementById('homeGalleryPreview');
         const overlay = document.getElementById('homeLightbox');
         const img = document.getElementById('homeLightboxImg');
-        const caption = document.getElementById('homeLightboxCaption');
+        const titleEl = document.getElementById('homeLightboxTitle');
+        const metaEl = document.getElementById('homeLightboxMeta');
+        const fullLinkEl = document.getElementById('homeLightboxFullLink');
+
+        function escapeHtml(str) {
+            const div = document.createElement('div');
+            div.textContent = str;
+            return div.innerHTML;
+        }
+
+        function tagLink(label) {
+            return `<a href="/gallery/?tag=${encodeURIComponent(label)}" class="subtle-link">${escapeHtml(label)}</a>`;
+        }
 
         function open() {
             img.src = trigger.dataset.full;
-            caption.textContent = trigger.dataset.title || '';
+            titleEl.textContent = trigger.dataset.title || '';
+
+            const tags = (trigger.dataset.tags || '').split(',').map((t) => t.trim()).filter(Boolean);
+            const date = trigger.dataset.date || '';
+            const dateMatch = date.match(/^([A-Za-z]+)\s+(\d+),\s+(\d+)$/);
+
+            function baseMetaHTML(dims) {
+                let dateHTML = escapeHtml(date);
+                if (dateMatch) {
+                    const [, month, day, year] = dateMatch;
+                    dateHTML = `${tagLink(month)} ${escapeHtml(day)}, ${tagLink(year)}`;
+                }
+                const tagsHTML = tags.map(tagLink).join(' / ');
+                const rightSide = [tagsHTML, dims ? escapeHtml(dims) : ''].filter(Boolean).join(' / ');
+                const parts = [dateHTML, rightSide].filter(Boolean);
+                return parts.join(' - ');
+            }
+
+            metaEl.innerHTML = baseMetaHTML('');
+
+            const entrySlug = trigger.dataset.entry || '';
+            fullLinkEl.href = `/gallery/entry/?entry=${encodeURIComponent(entrySlug)}`;
+
+            function applyDims() {
+                if (img.naturalWidth && img.naturalHeight) {
+                    metaEl.innerHTML = baseMetaHTML(`${img.naturalWidth} x ${img.naturalHeight}`);
+                    return true;
+                }
+                return false;
+            }
+
+            if (!applyDims()) {
+                img.addEventListener('load', applyDims, { once: true });
+            }
+
             overlay.classList.add('active');
         }
 
         function close() {
             overlay.classList.remove('active');
             img.src = '';
-            caption.textContent = '';
+            titleEl.textContent = '';
+            metaEl.textContent = '';
         }
 
         trigger.addEventListener('click', open);

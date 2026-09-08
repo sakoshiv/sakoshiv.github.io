@@ -2,7 +2,7 @@
 <html><head>
 <!-- Open Graph -->
 <meta property="og:title" content="Sako | Gallery">
-<meta property="og:description" content="A bunch of images. For no reason.">
+<meta property="og:description" content="A bunch of images.">
 <meta property="og:image" content="https://sakoshiv.github.io/media/sys/1x1.webp">
 <meta property="og:url" content="https://sakoshiv.github.io/gallery/">
 <meta property="og:type" content="website">
@@ -69,38 +69,110 @@
     .lightbox-overlay {
         position: fixed;
         inset: 0;
-        background: rgba(0, 0, 0, 0.5);
+        background: rgba(0, 0, 0, 0.75);
         display: none;
         align-items: center;
         justify-content: center;
         z-index: 1000;
+        padding: 30px 20px;
     }
 
     .lightbox-overlay.active {
         display: flex;
     }
 
-    .lightbox-overlay img {
-        max-width: 80vw;
-        max-height: 85vh;
-        object-fit: contain;
+    .lightbox-content {
+        width: min(94vw, 1600px, 120vh);
+        max-height: 100%;
+        display: flex;
+        flex-direction: column;
         cursor: default;
+        box-sizing: border-box;
     }
 
-    .lightbox-caption {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 7.5%;
+    .lightbox-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        width: 100%;
+        box-sizing: border-box;
+        color: #d7d7d7;
+        font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+        margin-bottom: 14px;
+    }
+
+    .lightbox-header-left,
+    .lightbox-header-right {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .lightbox-header-right {
+        align-items: flex-end;
+        justify-content: flex-end;
+    }
+
+    .lightbox-title {
+        font-size: 26px;
+        font-weight: bold;
+        color: #fff;
+        margin: 0 0 4px;
+    }
+
+    .lightbox-meta {
+        font-size: 13px;
+        color: #8a8a8a;
+        margin: 0;
+    }
+
+    .lightbox-counter {
+        font-size: 13px;
+        color: #8a8a8a;
+        white-space: nowrap;
+        margin: 0 0 4px;
+    }
+
+    .lightbox-full-link {
+        font-size: 13px;
+        color: #8a8a8a;
+        white-space: nowrap;
+        margin: 0;
+    }
+
+    .lightbox-full-link a {
+        color: #8a8a8a;
+    }
+
+    .lightbox-full-link a:hover {
+        color: #d7d7d7;
+        text-decoration: underline;
+    }
+
+    .lightbox-body {
+        position: relative;
+        width: 100%;
+        box-sizing: border-box;
         display: flex;
         align-items: center;
         justify-content: center;
-        text-align: center;
-        color: #d7d7d7;
-        font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
-        font-size: 14px;
-        pointer-events: none;
+    }
+
+    .lightbox-frame {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .lightbox-frame img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        cursor: default;
+        display: block;
     }
 
     .lightbox-nav {
@@ -118,16 +190,86 @@
     }
 
     .lightbox-nav-left {
-        left: 4%;
+        left: calc(-1 * clamp(24px, 4vw, 64px));
     }
 
     .lightbox-nav-right {
-        right: 4%;
+        right: calc(-1 * clamp(24px, 4vw, 64px));
+    }
+
+    .lightbox-thumbs {
+        position: relative;
+        width: calc(100% + 48px);
+        margin-left: -24px;
+        margin-right: -24px;
+        overflow: hidden;
+        margin-top: 18px;
+        -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), black 60px, black calc(100% - 60px), rgba(0, 0, 0, 0.5));
+        mask-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), black 60px, black calc(100% - 60px), rgba(0, 0, 0, 0.5));
+    }
+
+    .lightbox-thumbs-track {
+        display: flex;
+        gap: 6px;
+        width: max-content;
+        transition: transform 0.2s ease;
+    }
+
+    .lightbox-thumb {
+        flex: 0 0 auto;
+        width: 80px;
+        height: 111px;
+        position: relative;
+        cursor: pointer;
+    }
+
+    .lightbox-thumb-frame {
+        width: 80px;
+        height: 107px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .lightbox-thumb-frame img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        filter: brightness(0.35);
+        transition: filter 0.15s ease;
+    }
+
+    .lightbox-thumb:hover .lightbox-thumb-frame img,
+    .lightbox-thumb.active .lightbox-thumb-frame img {
+        filter: brightness(1);
+    }
+
+    .lightbox-thumb-bar {
+        position: absolute;
+        left: 2px;
+        right: 2px;
+        bottom: 0;
+        height: 2px;
+        background: transparent;
+    }
+
+    .lightbox-thumb.active .lightbox-thumb-bar {
+        background: #ffffff;
     }
 
     @media (max-width: 700px) {
-        .lightbox-caption {
-            display: none;
+        .lightbox-header {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 2px;
+        }
+
+        .lightbox-header-right {
+            align-items: flex-start;
+        }
+
+        .lightbox-title {
+            font-size: 20px;
         }
 
         .lightbox-nav {
@@ -136,9 +278,7 @@
     }
 
     .gallery-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        position: relative;
     }
 
     .gallery-header p {
@@ -146,6 +286,9 @@
     }
 
     .gallery-toolbar {
+        position: absolute;
+        top: 4px;
+        right: 0;
         display: flex;
     }
 
@@ -338,6 +481,9 @@
                                 <div class="tag-filter-group-label">Tag Groups</div>
                                 <div class="tag-filter-group active" data-group="content">Content <span>3</span></div>
                                 <div class="tag-filter-group" data-group="technical">Technical <span>2</span></div>
+                                <div class="tag-filter-group" data-group="years">Years <span>1</span></div>
+                                <div class="tag-filter-group" data-group="months">Months <span>12</span></div>
+                                <div class="tag-filter-group" data-group="quarters">Quarters <span>4</span></div>
                             </div>
                             <div class="tag-filter-items" id="tagFilterItems"></div>
                         </div>
@@ -351,17 +497,25 @@
         <p id="noImagesMessage" class="no-images-message">There are no gallery entries being shown. Check the applied filters.</p>
 
         <div class="gallery-row">
-            <div class="gallery-item"><img src="../media/img/thumb/screenshot-01166_thumb.webp" data-full="../media/img/screenshot-01166.webp" alt="" data-title="Would you stomp on her for 30 trillion dollars? I would." data-tags="Screenshot"></div>
-          <div class="gallery-item"><img src="../media/img/thumb/damn_bro_thumb.webp" data-full="../media/img/damn_bro.webp" alt="" data-title="Dude Please Stop Talking" data-tags="Shitpost, Garupan"></div>
-            <div class="gallery-item"><img src="../media/img/thumb/post-preview-02_thumb.webp" data-full="../media/img/post-preview-02.webp" alt="" data-title="Fucked up looking Nadeko." data-tags="Screenshot, Shitpost"></div>
-            <div class="gallery-item"><img src="../media/img/thumb/mako_ride_thumb.gif" data-full="../media/img/mako_ride.gif" alt="" data-title="Mako Riding A Fuckin Horse Dot GIF" data-tags="Animated, Garupan"></div>
-            <div class="gallery-item"><img src="../media/img/thumb/miho_lurk_thumb.webp" data-full="../media/img/miho_lurk.png" alt="" data-title="Creepy Low Res. Miho" data-tags="Shitpost, Garupan"></div>
-            <div class="gallery-item"><img src="../media/img/thumb/bokodeath_thumb.gif" data-full="../media/img/bokodeath.gif" alt="" data-title="Total Boko Death" data-tags="Animated, Garupan"></div>
-            <div class="gallery-item"><img src="../media/img/thumb/spinny_thumb.gif" data-full="../media/img/spinny.gif" alt="" data-title="Transparency Test" data-tags="Animated"></div>
-            <div class="gallery-item"><img src="../media/img/thumb/huh_thumb.webp" data-full="../media/img/huh.png" alt="" data-title="What?" data-tags="Shitpost"></div>
-            <div class="gallery-item"><img src="../media/img/thumb/neko_thumb.gif" data-full="../media/img/neko.gif" alt="" data-title="God I Wish That Were Me" data-tags="Animated"></div>
-            <div class="gallery-item"><img src="../media/img/thumb/neet_thumb.webp" data-full="../media/img/neet.jpg" alt="" data-title="I'm running out of unique placeholder media." data-tags="Shitpost"></div>
-            <div class="gallery-item"><img src="../media/img/thumb/dont_thumb.webp" data-full="../media/img/dont.jpg" alt="" data-title="Avoid alcohol and drugs." data-tags="Shitpost, NSFW"></div>
+            <div class="gallery-item"><img src="../media/img/thumb/screenshot-01166_thumb.webp" data-full="../media/img/screenshot-01166.webp" alt="" data-title="Captured Kishirika" data-tags="Screenshot, Shitpost, September, 2026, Q3" data-date="September 7, 2026"></div>
+          <div class="gallery-item"><img src="../media/img/thumb/damn_bro_thumb.webp" data-full="../media/img/damn_bro.webp" alt="" data-title="Dude Please Stop Talking" data-tags="Shitpost, Garupan, September, 2026, Q3" data-date="September 4, 2026"></div>
+            <div class="gallery-item"><img src="../media/img/thumb/post-preview-02_thumb.webp" data-full="../media/img/post-preview-02.webp" alt="" data-title="Fucked up looking Nadeko." data-tags="Screenshot, Shitpost, August, 2026, Q3" data-date="August 30, 2026"></div>
+            <div class="gallery-item"><img src="../media/img/thumb/mako_ride_thumb.gif" data-full="../media/img/mako_ride.gif" alt="" data-title="Mako Riding A Fuckin Horse Dot GIF" data-tags="Animated, Garupan, August, 2026, Q3" data-date="August 22, 2026"></div>
+            <div class="gallery-item"><img src="../media/img/thumb/miho_lurk_thumb.webp" data-full="../media/img/miho_lurk.png" alt="" data-title="Creepy Low Res. Miho" data-tags="Shitpost, Garupan, August, 2026, Q3" data-date="August 14, 2026"></div>
+            <div class="gallery-item"><img src="../media/img/thumb/bokodeath_thumb.gif" data-full="../media/img/bokodeath.gif" alt="" data-title="Total Boko Death" data-tags="Animated, Garupan, August, 2026, Q3" data-date="August 5, 2026"></div>
+            <div class="gallery-item"><img src="../media/img/thumb/spinny_thumb.gif" data-full="../media/img/spinny.gif" alt="" data-title="Transparency Test" data-tags="Animated, July, 2026, Q3" data-date="July 29, 2026"></div>
+            <div class="gallery-item"><img src="../media/img/thumb/huh_thumb.webp" data-full="../media/img/huh.png" alt="" data-title="What?" data-tags="Shitpost, July, 2026, Q3" data-date="July 20, 2026"></div>
+            <div class="gallery-item"><img src="../media/img/thumb/neko_thumb.gif" data-full="../media/img/neko.gif" alt="" data-title="God I Wish That Were Me" data-tags="Animated, July, 2026, Q3" data-date="July 12, 2026"></div>
+            <div class="gallery-item"><img src="../media/img/thumb/neet_thumb.webp" data-full="../media/img/neet.jpg" alt="" data-title="I'm running out of unique placeholder media." data-tags="Shitpost, July, 2026, Q3" data-date="July 3, 2026"></div>
+            <div class="gallery-item"><img src="../media/img/thumb/dont_thumb.webp" data-full="../media/img/dont.jpg" alt="" data-title="Avoid alcohol and drugs." data-tags="Shitpost, NSFW, June, 2026, Q2" data-date="June 25, 2026"></div>
+            <div class="gallery-item"><img src="../media/img/thumb/0d1_thumb.webp" data-full="../media/img/0d1.webp" alt="" data-title="Wh-" data-tags="Shitpost, June, 2026, Q2" data-date="June 18, 2026"></div>
+            <div class="gallery-item"><img src="../media/img/thumb/0d2_thumb.webp" data-full="../media/img/0d2.webp" alt="" data-title="OHHH" data-tags="Shitpost, June, 2026, Q2" data-date="June 10, 2026"></div>
+            <div class="gallery-item"><img src="../media/img/thumb/bunny_thumb.webp" data-full="../media/img/bunny.webp" alt="" data-title="Smug Rabbit" data-tags="Garupan, June, 2026, Q2" data-date="June 2, 2026"></div>
+            <div class="gallery-item"><img src="../media/img/thumb/easy-modo_thumb.webp" data-full="../media/img/easy-modo.webp" alt="" data-title="Easy Mode!??" data-tags="Shitpost, May, 2026, Q2" data-date="May 25, 2026"></div>
+            <div class="gallery-item"><img src="../media/img/thumb/false_thumb.gif" data-full="../media/img/false.gif" alt="" data-title="True? False." data-tags="Shitpost, Animated, May, 2026, Q2" data-date="May 17, 2026"></div>
+            <div class="gallery-item"><img src="../media/img/thumb/Still004_thumb.webp" data-full="../media/img/Still004.webp" alt="" data-title="Old Halo 2" data-tags="Shitpost, May, 2026, Q2" data-date="May 9, 2026"></div>
+            <div class="gallery-item"><img src="../media/img/thumb/walking_thumb.webp" data-full="../media/img/walking.webp" alt="" data-title="Walking" data-tags="Shitpost, May, 2026, Q2" data-date="May 1, 2026"></div>
+            <div class="gallery-item"><img src="../media/img/thumb/yukiho_thumb.webp" data-full="../media/img/yukiho.webp" alt="" data-title="Yukiho" data-tags="Shitpost, April, 2026, Q2" data-date="April 23, 2026"></div>
         </div>
         </div>
 
@@ -371,10 +525,28 @@
 </div>
 
 <div class="lightbox-overlay" id="lightbox">
-    <img class="lightbox-nav lightbox-nav-left" id="lightbox-prev" src="../media/sys/left.svg" alt="Previous">
-    <img id="lightbox-img" src="" alt="">
-    <img class="lightbox-nav lightbox-nav-right" id="lightbox-next" src="../media/sys/right.svg" alt="Next">
-    <div class="lightbox-caption" id="lightbox-caption"></div>
+    <div class="lightbox-content">
+        <div class="lightbox-header">
+            <div class="lightbox-header-left">
+                <p class="lightbox-title" id="lightbox-title"></p>
+                <p class="lightbox-meta" id="lightbox-meta"></p>
+            </div>
+            <div class="lightbox-header-right">
+                <div class="lightbox-counter" id="lightbox-counter"></div>
+                <p class="lightbox-full-link"><a href="/posts/" id="lightbox-full-link">View Full Entry</a></p>
+            </div>
+        </div>
+        <div class="lightbox-body">
+            <img class="lightbox-nav lightbox-nav-left" id="lightbox-prev" src="../media/sys/left.svg" alt="Previous">
+            <div class="lightbox-frame">
+                <img id="lightbox-img" src="" alt="">
+            </div>
+            <img class="lightbox-nav lightbox-nav-right" id="lightbox-next" src="../media/sys/right.svg" alt="Next">
+        </div>
+        <div class="lightbox-thumbs" id="lightbox-thumbs">
+            <div class="lightbox-thumbs-track" id="lightbox-thumbs-track"></div>
+        </div>
+    </div>
 </div>
 
 <script>
@@ -382,6 +554,9 @@
         const groups = {
             "content": ["Screenshot", "Shitpost", "Garupan"],
             "technical": ["NSFW", "Animated"],
+            "years": ["2026"],
+            "months": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+            "quarters": ["Q1", "Q2", "Q3", "Q4"],
         };
 
         const state = {}; // tag label -> "include" | "exclude" (absence = neutral)
@@ -475,7 +650,24 @@
             }
         });
 
+        function applyFromURL() {
+            const params = new URLSearchParams(window.location.search);
+            const tag = params.get("tag");
+            if (!tag) return;
+
+            state[tag] = "include";
+
+            const groupKey = Object.keys(groups).find((g) => groups[g].includes(tag));
+            if (groupKey) {
+                groupEls.forEach((g) => g.classList.toggle("active", g.dataset.group === groupKey));
+                renderItems(groupKey);
+            }
+
+            applyFilters();
+        }
+
         renderItems("content");
+        applyFromURL();
     })();
 </script>
 
@@ -484,7 +676,12 @@
         const items = Array.from(document.querySelectorAll('.gallery-item img'));
         const overlay = document.getElementById('lightbox');
         const overlayImg = document.getElementById('lightbox-img');
-        const caption = document.getElementById('lightbox-caption');
+        const titleEl = document.getElementById('lightbox-title');
+        const fullLinkEl = document.getElementById('lightbox-full-link');
+        const metaEl = document.getElementById('lightbox-meta');
+        const counterEl = document.getElementById('lightbox-counter');
+        const thumbsEl = document.getElementById('lightbox-thumbs');
+        const thumbsTrackEl = document.getElementById('lightbox-thumbs-track');
         const prevBtn = document.getElementById('lightbox-prev');
         const nextBtn = document.getElementById('lightbox-next');
         let currentImg = null;
@@ -493,11 +690,136 @@
             return items.filter((img) => img.closest('.gallery-item').style.display !== 'none');
         }
 
+        function pad(n) {
+            return String(n).padStart(2, '0');
+        }
+
+        function renderThumbs() {
+            const visible = getVisibleItems();
+            thumbsTrackEl.innerHTML = '';
+            let activeEl = null;
+
+            visible.forEach((img) => {
+                const thumb = document.createElement('div');
+                thumb.className = 'lightbox-thumb' + (img === currentImg ? ' active' : '');
+
+                const frame = document.createElement('div');
+                frame.className = 'lightbox-thumb-frame';
+                const thumbImg = document.createElement('img');
+                thumbImg.src = img.src;
+                thumbImg.alt = '';
+                frame.appendChild(thumbImg);
+
+                const bar = document.createElement('div');
+                bar.className = 'lightbox-thumb-bar';
+
+                thumb.appendChild(frame);
+                thumb.appendChild(bar);
+                thumb.addEventListener('click', () => show(img));
+                thumbsTrackEl.appendChild(thumb);
+
+                if (img === currentImg) activeEl = thumb;
+            });
+
+            centerThumbs(activeEl);
+        }
+
+        function centerThumbs(activeEl) {
+            const wrapperWidth = thumbsEl.clientWidth;
+            const trackWidth = thumbsTrackEl.scrollWidth;
+
+            let offset;
+            let atStart = true;
+            let atEnd = true;
+
+            if (trackWidth <= wrapperWidth) {
+                offset = (wrapperWidth - trackWidth) / 2;
+            } else {
+                const activeCenter = activeEl ? activeEl.offsetLeft + activeEl.offsetWidth / 2 : trackWidth / 2;
+                const minOffset = wrapperWidth - trackWidth;
+                offset = Math.min(0, Math.max(minOffset, wrapperWidth / 2 - activeCenter));
+                atStart = offset >= -0.5;
+                atEnd = offset <= minOffset + 0.5;
+            }
+
+            thumbsTrackEl.style.transform = `translateX(${offset}px)`;
+
+            const stops = [];
+            stops.push(atStart ? 'black 0%' : 'rgba(0, 0, 0, 0.5) 0%, black 60px');
+            stops.push(atEnd ? 'black 100%' : 'black calc(100% - 60px), rgba(0, 0, 0, 0.5) 100%');
+            const mask = `linear-gradient(to right, ${stops.join(', ')})`;
+            thumbsEl.style.maskImage = mask;
+            thumbsEl.style.webkitMaskImage = mask;
+        }
+
+        function slugify(title) {
+            return title.replace(/[^\w\s-]/g, '').trim().replace(/\s+/g, '-');
+        }
+
+        function escapeHtml(str) {
+            const div = document.createElement('div');
+            div.textContent = str;
+            return div.innerHTML;
+        }
+
+        function tagLink(label) {
+            return `<a href="/gallery/?tag=${encodeURIComponent(label)}" class="subtle-link">${escapeHtml(label)}</a>`;
+        }
+
+        const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+        function isMetaOnlyTag(tag) {
+            return MONTHS.includes(tag) || /^\d{4}$/.test(tag) || /^Q[1-4]$/.test(tag);
+        }
+
         function show(img) {
             currentImg = img;
             overlayImg.src = img.dataset.full;
-            caption.textContent = img.dataset.title || '';
+            titleEl.textContent = img.dataset.title || '';
+
+            const tags = (img.dataset.tags || '').split(',').map((t) => t.trim()).filter(Boolean);
+            const displayTags = tags.filter((t) => !isMetaOnlyTag(t));
+            const date = img.dataset.date || '';
+            const dateMatch = date.match(/^([A-Za-z]+)\s+(\d+),\s+(\d+)$/);
+
+            function baseMetaHTML(dims) {
+                let dateHTML = escapeHtml(date);
+                if (dateMatch) {
+                    const [, month, day, year] = dateMatch;
+                    dateHTML = `${tagLink(month)} ${escapeHtml(day)}, ${tagLink(year)}`;
+                }
+                const tagsHTML = displayTags.map(tagLink).join(' / ');
+                const rightSide = [tagsHTML, dims ? escapeHtml(dims) : ''].filter(Boolean).join(' / ');
+                const parts = [dateHTML, rightSide].filter(Boolean);
+                return parts.join(' - ');
+            }
+
+            // Render immediately with no dimensions so the header never waits on
+            // image load (avoids layout shift and stale text during fast cycling).
+            metaEl.innerHTML = baseMetaHTML('');
+
+            const entrySlug = slugify(img.dataset.title || '');
+            fullLinkEl.href = `/gallery/entry/?entry=${encodeURIComponent(entrySlug)}`;
+
+            function applyDims() {
+                if (currentImg !== img) return; // a newer show() call has since taken over
+                if (overlayImg.naturalWidth && overlayImg.naturalHeight) {
+                    metaEl.innerHTML = baseMetaHTML(`${overlayImg.naturalWidth} x ${overlayImg.naturalHeight}`);
+                    return true;
+                }
+                return false;
+            }
+
+            if (!applyDims()) {
+                overlayImg.addEventListener('load', applyDims, { once: true });
+            }
+
+            const visible = getVisibleItems();
+            const idx = visible.indexOf(img);
+            counterEl.textContent = `${pad(idx + 1)}/${pad(visible.length)}`;
+
             overlay.classList.add('active');
+            renderThumbs();
         }
 
         function step(delta) {
@@ -512,7 +834,11 @@
         function close() {
             overlay.classList.remove('active');
             overlayImg.src = '';
-            caption.textContent = '';
+            titleEl.textContent = '';
+            metaEl.textContent = '';
+            counterEl.textContent = '';
+            thumbsTrackEl.innerHTML = '';
+            fullLinkEl.href = '/gallery/entry/';
         }
 
         items.forEach((img) => {
@@ -538,6 +864,12 @@
             if (e.key === 'ArrowRight') step(1);
             else if (e.key === 'ArrowLeft') step(-1);
             else if (e.key === 'Escape') close();
+        });
+
+        window.addEventListener('resize', () => {
+            if (!overlay.classList.contains('active')) return;
+            const activeEl = thumbsTrackEl.querySelector('.lightbox-thumb.active');
+            centerThumbs(activeEl);
         });
     })();
 </script>
