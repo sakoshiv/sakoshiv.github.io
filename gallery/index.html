@@ -2,7 +2,7 @@
 <html><head>
 <!-- Open Graph -->
 <meta property="og:title" content="Sako | Gallery">
-<meta property="og:description" content="A bunch of images.">
+<meta property="og:description" content="A bunch of images. For no reason.">
 <meta property="og:image" content="https://sakoshiv.github.io/media/sys/1x1.webp">
 <meta property="og:url" content="https://sakoshiv.github.io/gallery/">
 <meta property="og:type" content="website">
@@ -123,6 +123,18 @@
         font-size: 13px;
         color: #8a8a8a;
         margin: 0;
+    }
+
+    .lightbox-meta a,
+    .lightbox-meta a:link,
+    .lightbox-meta a:visited,
+    .lightbox-meta a:hover,
+    .lightbox-meta a:active {
+        color: inherit;
+    }
+
+    .lightbox-meta a:hover {
+        text-decoration: underline;
     }
 
     .lightbox-counter {
@@ -272,7 +284,10 @@
             font-size: 20px;
         }
 
-        .lightbox-nav {
+        .lightbox-meta,
+        .lightbox-counter,
+        .lightbox-nav,
+        .lightbox-thumbs {
             display: none;
         }
     }
@@ -399,6 +414,15 @@
         cursor: pointer;
         color: #d7d7d7;
         user-select: none;
+    }
+
+    .tag-filter-item-label {
+        flex: 1;
+    }
+
+    .tag-filter-count {
+        color: #7a7a7a;
+        font-size: 11px;
     }
 
     .tag-filter-checkbox {
@@ -593,6 +617,14 @@
             noImagesMsg.style.display = anyVisible ? "none" : "block";
         }
 
+        function countForTag(label) {
+            return Array.from(galleryItemEls).filter((item) => {
+                const img = item.querySelector("img[data-tags]");
+                const tags = img.dataset.tags.split(",").map((t) => t.trim());
+                return tags.includes(label);
+            }).length;
+        }
+
         function renderItems(groupKey) {
             itemsEl.innerHTML = "";
             groups[groupKey].forEach((label) => {
@@ -605,10 +637,16 @@
                 box.textContent = state[label] === "include" ? "✓" : state[label] === "exclude" ? "✕" : "";
 
                 const text = document.createElement("span");
+                text.className = "tag-filter-item-label";
                 text.textContent = label;
+
+                const count = document.createElement("span");
+                count.className = "tag-filter-count";
+                count.textContent = countForTag(label);
 
                 row.appendChild(box);
                 row.appendChild(text);
+                row.appendChild(count);
 
                 row.addEventListener("click", (e) => {
                     e.stopPropagation();

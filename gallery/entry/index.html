@@ -2,7 +2,7 @@
 <html><head>
 <!-- Open Graph -->
 <meta property="og:title" content="Sako | Gallery Entry">
-<meta property="og:description" content="View gallery entries here.">
+<meta property="og:description" content="A single gallery entry from the Sako gallery.">
 <meta property="og:image" content="https://sakoshiv.github.io/media/sys/1x1.webp">
 <meta property="og:url" content="https://sakoshiv.github.io/gallery/entry/">
 <meta property="og:type" content="website">
@@ -22,9 +22,6 @@
 <link rel="preload" href="../../code/js/tagline.js" as="script">
 <style>
     .post-footer {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
         margin-top: 8px;
         font-size: small;
     }
@@ -57,18 +54,9 @@
         background: #24405a;
     }
 
-    .post-footer-top {
-        display: flex;
-        align-items: center;
-    }
-
     @media (max-width: 700px) {
         .post-footer-tags {
             display: none;
-        }
-
-        .post-footer {
-            justify-content: flex-end;
         }
     }
 
@@ -77,6 +65,73 @@
         color: #A7A7A7;
         text-align: center;
         font-size: small;
+    }
+
+    .entry-info-grid {
+        display: flex;
+        gap: 12px;
+        margin-top: 30px;
+        margin-bottom: 20px;
+    }
+
+    .entry-description-card {
+        flex: 1.6 1 0;
+    }
+
+    .entry-metadata-card {
+        flex: 1 1 0;
+    }
+
+    .home-card {
+        background: #151515;
+        border: 1px solid #333;
+        padding: 10px;
+    }
+
+    .home-card p.home-card-title {
+        color: #d7d7d7;
+        font-size: 14px;
+        letter-spacing: 0.03em;
+        margin: 0 0 10px;
+        padding-bottom: 10px;
+        padding-left: 4px;
+        border-bottom: 1px solid #333;
+        font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+        font-weight: bold;
+    }
+
+    .home-card p {
+        margin: 0;
+        color: #d7d7d7;
+        font-size: small;
+        padding-left: 4px;
+    }
+
+    .entry-metadata-rows {
+        display: grid;
+        grid-template-columns: 110px 1fr;
+        row-gap: 6px;
+        padding-left: 4px;
+        font-size: small;
+    }
+
+    .entry-metadata-rows dt {
+        color: #A7A7A7;
+        margin: 0;
+        grid-column: 1;
+    }
+
+    .entry-metadata-rows dd {
+        color: #d7d7d7;
+        margin: 0;
+        grid-column: 2;
+        text-align: right;
+    }
+
+    @media (max-width: 700px) {
+        .entry-info-grid {
+            flex-direction: column;
+        }
     }
 </style>
 </head>
@@ -94,29 +149,47 @@
         <p2 class="breadcrumbs">
             » <a href="/" class="subtle-link">Home</a>
             » <a href="/gallery/" class="subtle-link">Gallery</a>
-            » Entry</a>
+            » <a href="/gallery/entry/" class="subtle-link">Entry</a>
         </p2>
 
-        <p id="entry-not-found" class="entry-not-found" style="display: none; font-size: small;">I think you broke some shit. Oh well.</p>
+        <p id="entry-not-found" class="entry-not-found" style="display: none;">You shouldn't be here.</p>
 
         <div id="entry-content" style="display: none;">
 
             <div class="post-header">
                 <h6 id="entry-title"></h6>
-                <span class="post-date" id="entry-date"></span>
             </div>
             <div class="mediaC">
 
                   <img src="" alt="" class="mediaA" id="entry-image">
                   </div>
+            <!-- Video media -->
 
-            <p id="entry-description"></p>
+
+            <!-- Video media -->
+
+
+            <div class="entry-info-grid">
+                <div class="home-card entry-description-card">
+                    <p class="home-card-title">Description</p>
+                    <p id="entry-description"></p>
+                </div>
+                <div class="home-card entry-metadata-card">
+                    <p class="home-card-title">Metadata</p>
+                    <dl class="entry-metadata-rows">
+                        <dt>Upload Date:</dt>
+                        <dd id="entry-meta-date"></dd>
+                        <dt>Resolution:</dt>
+                        <dd id="entry-meta-resolution"></dd>
+                        <dt>Project Time:</dt>
+                        <dd id="entry-meta-project-time"></dd>
+                    </dl>
+                </div>
+            </div>
+
             <hr>
             <div class="post-footer">
               <p class="post-footer-tags" id="entry-tags">Tags: </p>
-                <a href="#" class="post-footer-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;" aria-label="Back to top">
-                    <img src="../../media/sys/top.svg" alt="" width="16" height="16">
-                </a>
             </div>
 
         </div>
@@ -132,17 +205,155 @@
             const entries = {
                 "Captured-Kishirika": {
                     title: "Captured Kishirika",
-                    date: "09.07.2026",
+                    date: "September 7, 2026",
                     image: "../../media/img/screenshot-01166.webp",
-                    tags: ["September", "2026", "Q3", "Screenshot", "Shitpost"],
-                    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                    tags: ["Screenshot", "Shitpost", "September", "2026", "Q3"],
+                    description: "Not a hundred percent sure about how I'm feeling about this layout. Maybe make it collapsed by default. Anyway this is the shit that shows up when viewing the full entry. All other posts have fake info as usual. I'm getting sick of looking at this screenshot of Kishirika from Mushoku Tensei.",
+                    projectTime: "1 Hour, 42 Minutes"
+                },
+                "Dude-Please-Stop-Talking": {
+                    title: "Dude Please Stop Talking",
+                    date: "September 4, 2026",
+                    image: "../../media/img/damn_bro.webp",
+                    tags: ["Shitpost", "Garupan", "September", "2026", "Q3"],
+                    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Placeholder writeup text for this entry, standing in until something real gets written. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                    projectTime: "2 Hours, 15 Minutes"
+                },
+                "Fucked-up-looking-Nadeko": {
+                    title: "Fucked up looking Nadeko.",
+                    date: "August 30, 2026",
+                    image: "../../media/img/post-preview-02.webp",
+                    tags: ["Screenshot", "Shitpost", "August", "2026", "Q3"],
+                    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. A screenshot that looked worse the longer it was stared at. Placeholder description text, nothing more to it than that.",
+                    projectTime: "3 Hours, 9 Minutes"
+                },
+                "Mako-Riding-A-Fuckin-Horse-Dot-GIF": {
+                    title: "Mako Riding A Fuckin Horse Dot GIF",
+                    date: "August 22, 2026",
+                    image: "../../media/img/mako_ride.gif",
+                    tags: ["Animated", "Garupan", "August", "2026", "Q3"],
+                    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Exactly what the title says, animated and looping. Placeholder writeup text standing in for a real entry description.",
+                    projectTime: "45 Minutes"
+                },
+                "Creepy-Low-Res-Miho": {
+                    title: "Creepy Low Res. Miho",
+                    date: "August 14, 2026",
+                    image: "../../media/img/miho_lurk.png",
+                    tags: ["Shitpost", "Garupan", "August", "2026", "Q3"],
+                    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Low resolution does a lot of heavy lifting here. Placeholder description text for this gallery entry.",
+                    projectTime: "4 Hours, 30 Minutes"
+                },
+                "Total-Boko-Death": {
+                    title: "Total Boko Death",
+                    date: "August 5, 2026",
+                    image: "../../media/img/bokodeath.gif",
+                    tags: ["Animated", "Garupan", "August", "2026", "Q3"],
+                    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Another animated clip filed away as placeholder media. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                    projectTime: "1 Hour, 5 Minutes"
+                },
+                "Transparency-Test": {
+                    title: "Transparency Test",
+                    date: "July 29, 2026",
+                    image: "../../media/img/spinny.gif",
+                    tags: ["Animated", "July", "2026", "Q3"],
+                    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. This one exists to check that transparent media renders correctly in the lightbox. Placeholder description text.",
+                    projectTime: "2 Hours, 50 Minutes"
+                },
+                "What": {
+                    title: "What?",
+                    date: "July 20, 2026",
+                    image: "../../media/img/huh.png",
+                    tags: ["Shitpost", "July", "2026", "Q3"],
+                    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. A reaction image with no further context provided. Placeholder writeup text standing in for a real entry description.",
+                    projectTime: "6 Hours, 20 Minutes"
+                },
+                "God-I-Wish-That-Were-Me": {
+                    title: "God I Wish That Were Me",
+                    date: "July 12, 2026",
+                    image: "../../media/img/neko.gif",
+                    tags: ["Animated", "July", "2026", "Q3"],
+                    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Self-explanatory. Placeholder description text for this gallery entry, nothing more to it than that.",
+                    projectTime: "30 Minutes"
+                },
+                "Im-running-out-of-unique-placeholder-media": {
+                    title: "I'm running out of unique placeholder media.",
+                    date: "July 3, 2026",
+                    image: "../../media/img/neet.jpg",
+                    tags: ["Shitpost", "July", "2026", "Q3"],
+                    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. The title is the description at this point. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                    projectTime: "1 Hour, 18 Minutes"
                 },
                 "Avoid-alcohol-and-drugs": {
                     title: "Avoid alcohol and drugs.",
-                    date: "06.25.2026",
+                    date: "June 25, 2026",
                     image: "../../media/img/dont.jpg",
-                    tags: ["June", "2026", "Q2", "Shitpost", "NSFW"],
-                    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. This is placeholder writeup text standing in for a real entry description. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                    tags: ["Shitpost", "NSFW", "June", "2026", "Q2"],
+                    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. This is placeholder writeup text standing in for a real entry description. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                    projectTime: "1 Hour, 42 Minutes"
+                },
+                "Wh-": {
+                    title: "Wh-",
+                    date: "June 18, 2026",
+                    image: "../../media/img/0d1.webp",
+                    tags: ["Shitpost", "June", "2026", "Q2"],
+                    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. A very short reaction, matching its very short title. Placeholder description text for this gallery entry.",
+                    projectTime: "2 Hours, 15 Minutes"
+                },
+                "OHHH": {
+                    title: "OHHH",
+                    date: "June 10, 2026",
+                    image: "../../media/img/0d2.webp",
+                    tags: ["Shitpost", "June", "2026", "Q2"],
+                    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Loud, in caps, and entirely placeholder. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                    projectTime: "3 Hours, 9 Minutes"
+                },
+                "Smug-Rabbit": {
+                    title: "Smug Rabbit",
+                    date: "June 2, 2026",
+                    image: "../../media/img/bunny.webp",
+                    tags: ["Garupan", "June", "2026", "Q2"],
+                    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. A rabbit, looking smug. Placeholder writeup text standing in for a real entry description.",
+                    projectTime: "45 Minutes"
+                },
+                "Easy-Mode": {
+                    title: "Easy Mode!??",
+                    date: "May 25, 2026",
+                    image: "../../media/img/easy-modo.webp",
+                    tags: ["Shitpost", "May", "2026", "Q2"],
+                    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Filed under shitpost for a reason. Placeholder description text for this gallery entry.",
+                    projectTime: "4 Hours, 30 Minutes"
+                },
+                "True-False": {
+                    title: "True? False.",
+                    date: "May 17, 2026",
+                    image: "../../media/img/false.gif",
+                    tags: ["Shitpost", "Animated", "May", "2026", "Q2"],
+                    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. The title poses a question and immediately answers it. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                    projectTime: "1 Hour, 5 Minutes"
+                },
+                "Old-Halo-2": {
+                    title: "Old Halo 2",
+                    date: "May 9, 2026",
+                    image: "../../media/img/Still004.webp",
+                    tags: ["Shitpost", "May", "2026", "Q2"],
+                    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. An old capture kept around for placeholder purposes. Placeholder writeup text standing in for a real entry description.",
+                    projectTime: "2 Hours, 50 Minutes"
+                },
+                "Walking": {
+                    title: "Walking",
+                    date: "May 1, 2026",
+                    image: "../../media/img/walking.webp",
+                    tags: ["Shitpost", "May", "2026", "Q2"],
+                    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Someone, walking. Placeholder description text for this gallery entry, nothing more to it than that.",
+                    projectTime: "6 Hours, 20 Minutes"
+                },
+                "Yukiho": {
+                    title: "Yukiho",
+                    date: "April 23, 2026",
+                    image: "../../media/img/yukiho.webp",
+                    tags: ["Shitpost", "April", "2026", "Q2"],
+                    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Placeholder writeup text standing in for a real entry description. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                    projectTime: "30 Minutes"
                 }
             };
 
@@ -165,9 +376,26 @@
             document.title = "Sako | " + data.title;
 
             document.getElementById("entry-title").textContent = data.title;
-            document.getElementById("entry-date").textContent = data.date;
             document.getElementById("entry-image").src = data.image;
             document.getElementById("entry-description").textContent = data.description;
+
+            document.getElementById("entry-meta-date").textContent = data.date;
+            document.getElementById("entry-meta-project-time").textContent = data.projectTime || "";
+
+            const resolutionEl = document.getElementById("entry-meta-resolution");
+            const imageEl = document.getElementById("entry-image");
+
+            function applyResolution() {
+                if (imageEl.naturalWidth && imageEl.naturalHeight) {
+                    resolutionEl.textContent = `${imageEl.naturalWidth}x${imageEl.naturalHeight}`;
+                    return true;
+                }
+                return false;
+            }
+
+            if (!applyResolution()) {
+                imageEl.addEventListener("load", applyResolution, { once: true });
+            }
 
             const tagsEl = document.getElementById("entry-tags");
             tagsEl.dataset.tags = data.tags.join(", ");
