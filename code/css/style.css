@@ -100,11 +100,38 @@ body {
     color: #d7d7d7;
 }
 
-.text h6 {
+.text h1,
+.text h2 {
     margin: 6px 0;
     margin-top: 13px;
     font-size: xx-large;
     font-weight: bold;
+    font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+}
+
+.text h3 {
+    margin: 6px 0;
+    margin-top: 13px;
+    font-size: x-large;
+    font-weight: bold;
+    font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+}
+
+.text h4 {
+    margin: 6px 0;
+    margin-top: 13px;
+    font-size: large;
+    font-weight: bold;
+    font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+}
+
+.text h5,
+.text h6 {
+    margin: 6px 0;
+    margin-top: 13px;
+    font-size: medium;
+    font-weight: bold;
+    color: #A7A7A7;
     font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
 }
 
@@ -115,8 +142,266 @@ body {
         margin: 12px 0 24px;
     }
 
-    .text h6 {
+    .text h1,
+    .text h2 {
         font-size: 28px;
+    }
+
+    .text h3 {
+        font-size: 24px;
+    }
+
+    .text h4 {
+        font-size: 20px;
+    }
+}
+
+/* Inline text styles */
+
+.text mark {
+    background-color: #4a3f14;
+    color: #f0d878;
+    padding: 1px 3px;
+    border-radius: 3px;
+}
+
+.text code {
+    background-color: #1d1d1d;
+    border: 1px solid #333;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 0.9em;
+    color: #d7d7d7;
+}
+
+/* Lists */
+
+.text ul,
+.text ol {
+    margin: 15px 0 30px;
+    padding-left: 26px;
+    color: #d7d7d7;
+    font-size: medium;
+    font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+}
+
+.text li {
+    margin: 4px 0;
+}
+
+.text li > ul,
+.text li > ol {
+    margin: 4px 0;
+}
+
+.text ul.contains-task-list {
+    list-style: none;
+    padding-left: 8px;
+}
+
+.text ul.contains-task-list ul.contains-task-list {
+    padding-left: 22px;
+}
+
+.text .task-list-item {
+    list-style: none;
+}
+
+.text .task-list-label {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+}
+
+.text .task-list-item input[type="checkbox"] {
+    accent-color: #7bb0e8;
+    flex-shrink: 0;
+    transform: translateY(1px);
+}
+
+@media (max-width: 700px) {
+    .text ul,
+    .text ol {
+        font-size: 16px;
+        line-height: 1.55;
+    }
+}
+
+/* Callouts */
+
+.callout {
+    margin: 15px 0;
+    padding: 10px 14px;
+    background-color: #151515;
+    border: 1px solid #333;
+    border-left: 3px solid #7bb0e8;
+    border-radius: 4px;
+    color: #d7d7d7;
+}
+
+.callout-title {
+    margin: 0 0 6px;
+    font-weight: bold;
+    color: #7bb0e8;
+    font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+}
+
+details.callout > summary.callout-title {
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+details.callout > summary.callout-title::-webkit-details-marker {
+    display: none;
+}
+
+.callout-arrow {
+    display: inline-block;
+    font-size: 9px;
+    transition: transform 0.1s ease;
+}
+
+details.callout[open] > summary.callout-title .callout-arrow {
+    transform: rotate(90deg);
+}
+
+details.callout:not([open]) .callout-body {
+    display: none;
+}
+
+.callout-body > p:first-child {
+    margin-top: 0;
+}
+
+.callout-body > p:last-child {
+    margin-bottom: 0;
+}
+
+.callout-tip {
+    border-left-color: #5fd0c0;
+}
+
+.callout-tip .callout-title {
+    color: #5fd0c0;
+}
+
+.callout-warning {
+    border-left-color: #e0b84c;
+}
+
+.callout-warning .callout-title {
+    color: #e0b84c;
+}
+
+.callout-danger {
+    border-left-color: #e0605c;
+}
+
+.callout-danger .callout-title {
+    color: #e0605c;
+}
+
+.callout-info {
+    border-left-color: #5c9ee0;
+}
+
+.callout-info .callout-title {
+    color: #5c9ee0;
+}
+
+.callout-success {
+    border-left-color: #6bc47d;
+}
+
+.callout-success .callout-title {
+    color: #6bc47d;
+}
+
+.callout-question {
+    border-left-color: #b98ce0;
+}
+
+.callout-question .callout-title {
+    color: #b98ce0;
+}
+
+.callout-failure {
+    border-left-color: #e0745c;
+}
+
+.callout-failure .callout-title {
+    color: #e0745c;
+}
+
+.callout-bug {
+    border-left-color: #e08a4c;
+}
+
+.callout-bug .callout-title {
+    color: #e08a4c;
+}
+
+.callout-example {
+    border-left-color: #9c9cc0;
+}
+
+.callout-example .callout-title {
+    color: #9c9cc0;
+}
+
+.callout-quote {
+    border-left-color: #A7A7A7;
+}
+
+.callout-quote .callout-title {
+    color: #A7A7A7;
+}
+
+/* Code blocks */
+
+.code-block {
+    width: calc(100% - 60px);
+    max-width: 650px;
+    margin: 15px auto;
+    border: 1px solid #404040;
+    border-radius: 6px;
+    overflow: hidden;
+    background-color: #111111;
+}
+
+.code-block-header {
+    padding: 8px 10px;
+    background-color: #161616;
+    color: #A7A7A7;
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 12px;
+    border-bottom: 1px solid #404040;
+}
+
+.code-block pre {
+    margin: 0;
+    padding: 14px;
+    overflow-x: auto;
+}
+
+.code-block code {
+    background: none;
+    border: none;
+    padding: 0;
+    color: #d7d7d7;
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+@media (max-width: 700px) {
+    .code-block {
+        width: calc(100% - 16px);
     }
 }
 
@@ -140,7 +425,7 @@ hr {
     align-items: baseline;
 }
 
-.post-header h6 {
+.post-header h1 {
     margin: 15px 0px 0px;
     font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
     font-weight: bold;
@@ -286,12 +571,34 @@ hr {
     margin-top: 30px;
 }
 
+/* Audio media */
+
+.audio-group {
+    margin-top: 30px;
+}
+
+.audio-media audio {
+    display: block;
+    width: 100%;
+    color-scheme: dark;
+}
+
+@media (max-width: 700px) {
+    .audio-media {
+        width: calc(100% - 16px);
+    }
+}
+
 blockquote {
     margin: 15px 0;
     padding: 0 15px;
     border-left: 3px solid #555;
     color: #A7A7A7;
     font-style: normal;
+}
+
+blockquote blockquote {
+    margin: 8px 0;
 }
 
 /* Copy/Paste Box (About Page)*/
