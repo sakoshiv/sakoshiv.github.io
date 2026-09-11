@@ -1,4 +1,4 @@
-/* Animated tagline. Random A-Z, a-z, and 0-9 characters only. */
+﻿/* Animated tagline. Random A-Z, a-z, and 0-9 characters only. */
 (() => {
     const tagline = document.getElementById("scrambleText");
     const display = tagline.querySelector("span");
@@ -6,7 +6,6 @@
     const taglineLines = [
         "No one's watching, no one cares.",
         "The internet is noise and people are bored.",
-        "These pages will be updated eventually.",
         "Upper echelon internet poisoned schizophrenic.",
         "A shiv is a sharp makeshift weapon often used in survival situations.",
         "The undefeated champion of fucking things up.",
@@ -16,7 +15,6 @@
         "A collection of some random bullshit.",
         "A worthless NEET.",
         "I like making things no one will ever see.",
-        "Ambiguity is everything.",
         "Fuck I thought I had something philosophical to add here.",
         "Less is more."
     ];
